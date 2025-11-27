@@ -10,22 +10,23 @@
 
   <style>
     :root {
-      --bg: #ffffff;
+      --bg-page: #f3f4f6;
+      --bg-shell: #ffffff;
       --text: #000000;
       --muted: #4b5563;
       --accent-1: #6FA4AF; /* blue-green */
       --accent-2: #B8C4A9; /* sage */
+      --accent-warm: #D97D55; /* warm accent (sparingly) */
       --border-soft: #e5e7eb;
       --max-width: 1100px;
-      --tint-1: rgba(111, 164, 175, 0.10);
-      --tint-2: rgba(184, 196, 169, 0.18);
+      --radius-lg: 20px;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: var(--bg);
+      background: var(--bg-page);
       color: var(--text);
       font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
       line-height: 1.6;
@@ -42,10 +43,30 @@
       text-decoration: none;
     }
 
+    /* Outer shell */
+
     .shell {
       max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px 20px 60px;
+      margin: 24px auto 60px;
+      background: var(--bg-shell);
+      border-radius: 26px;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
+      padding: 0 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle colored band on left */
+    .shell::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 60px;
+      bottom: 40px;
+      width: 6px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
+      opacity: 0.6;
     }
 
     /* Sticky header */
@@ -55,28 +76,28 @@
       top: 0;
       z-index: 40;
       background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 20px;
-      margin: 0 -20px 32px;
+      padding: 18px 8px 14px;
+      margin: 0 -24px 16px;
       border-bottom: 1px solid var(--border-soft);
     }
 
     header .name {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
     header .nav {
       display: flex;
-      gap: 22px;
+      gap: 26px;
       font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
     }
 
     header .nav a {
@@ -103,10 +124,14 @@
         align-items: flex-start;
         gap: 8px;
       }
+      .shell::before {
+        top: 96px;
+      }
     }
 
     section {
-      margin-bottom: 64px;
+      margin: 40px 0 56px;
+      padding: 0 8px;
     }
 
     .section-label {
@@ -114,36 +139,28 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .section-title {
       font-size: 26px;
       font-weight: 600;
-      margin: 0 0 8px;
+      margin: 0 0 10px;
     }
 
     .section-sub {
       font-size: 16px;
       color: var(--muted);
       max-width: 520px;
-      margin: 0 0 20px;
-    }
-
-    .accent-line {
-      width: 60px;
-      height: 3px;
-      background: var(--accent-1);
-      border-radius: 999px;
-      margin-bottom: 24px;
+      margin: 0 0 18px;
     }
 
     /* Hero */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-      gap: 32px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+      gap: 28px;
       align-items: center;
     }
 
@@ -153,16 +170,46 @@
       }
     }
 
-    .hero-title {
-      font-size: clamp(36px, 5vw, 46px);
-      line-height: 1.05;
-      margin: 0 0 12px;
+    .hero-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(184, 196, 169, 0.18);
     }
 
-    .hero-sub {
-      font-size: 18px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent-1), transparent 60%);
+      opacity: 0.8;
+    }
+
+    .hero-image-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .hero-caption {
+      font-size: 13px;
       color: var(--muted);
-      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5vw, 44px);
+      line-height: 1.05;
+      margin: 0 0 10px;
     }
 
     .hero-roles {
@@ -170,14 +217,20 @@
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 14px;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 16px;
     }
 
     .hero-pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-top: 4px;
     }
 
     .pill {
@@ -188,111 +241,49 @@
       background: #f9fafb;
     }
 
-    .hero-card {
-      border-radius: 20px;
-      border: 1px solid var(--border-soft);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-      background: var(--tint-2);
-    }
+    /* Lawn mower feature */
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
-    }
-
-    .hero-image-wrap {
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    /* shrink hero/profile image a bit */
-    .hero-image-wrap img {
-      max-height: 260px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .hero-caption {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* Color block for hero text side */
-    .hero > div:last-child {
-      background: var(--tint-1);
-      border-radius: 18px;
-      padding: 18px 18px 20px;
-      border: 1px solid var(--border-soft);
-    }
-
-    /* Feature project – Lawn first (two stacked images) */
-
-    .feature-card {
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      overflow: hidden;
+    .feature-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
       background: #ffffff;
+      padding: 16px;
     }
 
     @media (max-width: 900px) {
-      .feature-card {
+      .feature-layout {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .feature-images-column {
+    .feature-media {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      background: #ffffff;
-      padding: 12px;
+      max-width: 440px;
     }
 
-    .feature-img-main {
-      max-height: 320px;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .feature-img-secondary {
-      max-height: 200px;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 10px;
+    .feature-media img {
+      border-radius: 16px;
       border: 1px solid var(--border-soft);
     }
 
     .feature-meta {
-      padding: 20px 20px 22px;
-      border-left: 1px solid var(--border-soft);
+      background: rgba(111, 164, 175, 0.10);
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: var(--tint-1);
-    }
-
-    @media (max-width: 900px) {
-      .feature-meta {
-        border-left: none;
-        border-top: 1px solid var(--border-soft);
-      }
     }
 
     .feature-tagbar {
-      width: 52px;
+      width: 56px;
       height: 3px;
       border-radius: 999px;
       background: var(--accent-2);
@@ -315,6 +306,7 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      margin-top: 8px;
     }
 
     /* Projects grid (Solar + UX) */
@@ -322,7 +314,7 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
+      gap: 22px;
     }
 
     @media (max-width: 900px) {
@@ -332,7 +324,7 @@
     }
 
     .project-card {
-      border-radius: 16px;
+      border-radius: 18px;
       border: 1px solid var(--border-soft);
       overflow: hidden;
       display: flex;
@@ -340,35 +332,42 @@
       background: #ffffff;
     }
 
+    .project-image-main {
+      background: #000;
+    }
+
     .project-image-main img {
-      max-height: 260px;
       width: 100%;
-      object-fit: cover;
-      border-bottom: 1px solid var(--border-soft);
+      height: auto;
+      display: block;
     }
 
     .project-body {
-      padding: 16px 16px 18px;
-      background: var(--tint-2);
+      padding: 14px 14px 16px;
+      background: rgba(184, 196, 169, 0.18);
     }
 
     .project-tagbar {
-      width: 46px;
+      width: 44px;
       height: 3px;
       border-radius: 999px;
       background: var(--accent-1);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+    }
+
+    .project-card.ux .project-tagbar {
+      background: var(--accent-2);
     }
 
     .project-title {
-      font-size: 20px;
+      font-size: 19px;
       margin: 0 0 6px;
     }
 
     .project-text {
       font-size: 15px;
       color: var(--muted);
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
 
     .project-meta {
@@ -378,15 +377,52 @@
       color: var(--muted);
     }
 
-    .project-card.ux .project-tagbar {
-      background: var(--accent-2);
+    /* CV section */
+
+    #cv-block {
+      background: linear-gradient(to right, rgba(184,196,169,0.18), #ffffff);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px 24px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .contact-box {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 18px;
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-text {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--text);
+      padding: 10px 18px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--text);
+      color: #fff;
     }
 
     /* About / Process */
 
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.3fr);
       gap: 24px;
       align-items: center;
     }
@@ -401,7 +437,8 @@
       border-radius: 18px;
       border: 1px solid var(--border-soft);
       overflow: hidden;
-      background: var(--tint-1);
+      background: rgba(111, 164, 175, 0.10);
+      padding: 10px;
     }
 
     .about-text-card {
@@ -441,49 +478,7 @@
     .process-caption {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 12px;
-    }
-
-    /* CV section with tint */
-
-    #cv {
-      background: rgba(184, 196, 169, 0.10);
-      border-radius: 18px;
-      padding: 32px 20px 32px;
-      margin-bottom: 64px;
-    }
-
-    /* Contact / CV inner */
-
-    .contact-box {
-      border-top: 1px solid var(--border-soft);
-      padding-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .contact-text {
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    .btn {
-      border-radius: 999px;
-      border: 1px solid var(--text);
-      padding: 10px 18px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: var(--text);
-      color: #fff;
+      margin-top: 10px;
     }
 
   </style>
@@ -516,7 +511,7 @@
           </div>
         </div>
 
-        <!-- Text RIGHT (colored block) -->
+        <!-- Text RIGHT -->
         <div>
           <div class="section-label">Creative Technology &amp; Design</div>
           <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
@@ -544,10 +539,10 @@
         Autonomous lawn-mowing prototype focused on mechanical configuration, safety, and form.
       </p>
 
-      <div class="feature-card">
-        <div class="feature-images-column">
-          <img src="img/lawn.jpeg" class="feature-img-main" alt="Robotic lawn mower prototype">
-          <img src="img/cad.jpeg" class="feature-img-secondary" alt="Completed robotic lawn mower view">
+      <div class="feature-layout">
+        <div class="feature-media">
+          <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
+          <img src="img/cad.jpeg" alt="Completed robotic lawn mower view">
         </div>
         <div class="feature-meta">
           <div>
@@ -615,17 +610,18 @@
     <!-- CV section -->
     <section id="cv">
       <div class="section-label">CV</div>
-      <h2 class="section-title">Curriculum Vitae</h2>
-      <p class="section-sub">
-        Full academic and professional CV with education, teaching, and additional projects.
-      </p>
-      <div class="accent-line"></div>
-      <div class="contact-box">
-        <div class="contact-text">
-          The CV includes additional teaching experience, coursework, and design work not shown here.
-        </div>
-        <div>
-          <a class="btn" href="saharnazcvR.pdf">Download CV</a>
+      <div id="cv-block">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <p class="section-sub">
+          Full academic and professional CV with education, teaching, and additional projects.
+        </p>
+        <div class="contact-box">
+          <div class="contact-text">
+            The CV includes additional teaching experience, coursework, and design work not shown here.
+          </div>
+          <div>
+            <a class="btn" href="saharnazcvR.pdf">Download CV</a>
+          </div>
         </div>
       </div>
     </section>
