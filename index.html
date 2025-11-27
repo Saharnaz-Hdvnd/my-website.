@@ -48,15 +48,24 @@
       padding: 24px 20px 60px;
     }
 
+    /* Sticky header */
+
     header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      padding: 14px 20px;
+      margin: 0 -20px 32px;
+      border-bottom: 1px solid var(--border-soft);
     }
 
     header .name {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -64,15 +73,15 @@
 
     header .nav {
       display: flex;
-      gap: 18px;
-      font-size: 13px;
+      gap: 22px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
 
     header .nav a {
       position: relative;
-      padding-bottom: 2px;
+      padding-bottom: 3px;
     }
 
     header .nav a::after {
@@ -81,12 +90,20 @@
       left: 0;
       bottom: 0;
       width: 0;
-      height: 1px;
+      height: 2px;
       background: var(--accent-1);
       transition: width 0.15s ease-out;
     }
 
     header .nav a:hover::after { width: 100%; }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
 
     section {
       margin-bottom: 64px;
@@ -198,19 +215,34 @@
       overflow: hidden;
     }
 
+    /* shrink hero/profile image a bit */
+    .hero-image-wrap img {
+      max-height: 260px;
+      width: 100%;
+      object-fit: cover;
+    }
+
     .hero-caption {
       font-size: 13px;
       color: var(--muted);
     }
 
-    /* Feature project – Lawn first */
+    /* Color block for hero text side */
+    .hero > div:last-child {
+      background: var(--tint-1);
+      border-radius: 18px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Feature project – Lawn first (two stacked images) */
 
     .feature-card {
       border-radius: 18px;
       border: 1px solid var(--border-soft);
       overflow: hidden;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       background: #ffffff;
     }
 
@@ -220,25 +252,27 @@
       }
     }
 
-    .feature-image-main {
-      position: relative;
+    .feature-images-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #ffffff;
+      padding: 12px;
     }
 
-    .feature-image-main img {
+    .feature-img-main {
+      max-height: 320px;
       width: 100%;
-      height: 100%;
       object-fit: cover;
+      border-radius: 10px;
     }
 
-    .feature-image-overlay {
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      width: 40%;
-      border-radius: 12px;
-      border: 2px solid #ffffff;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
-      overflow: hidden;
+    .feature-img-secondary {
+      max-height: 200px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
     }
 
     .feature-meta {
@@ -307,12 +341,15 @@
     }
 
     .project-image-main img {
+      max-height: 260px;
+      width: 100%;
+      object-fit: cover;
       border-bottom: 1px solid var(--border-soft);
     }
 
     .project-body {
       padding: 16px 16px 18px;
-      background: #f9fafb;
+      background: var(--tint-2);
     }
 
     .project-tagbar {
@@ -345,7 +382,7 @@
       background: var(--accent-2);
     }
 
-    /* Process / About me */
+    /* About / Process */
 
     .about-grid {
       display: grid;
@@ -369,7 +406,7 @@
 
     .about-text-card {
       border-radius: 18px;
-      border: 1px solid var(--border-soft);
+      border: 1px solid var(--accent-2);
       padding: 18px 18px 20px;
       background: #ffffff;
     }
@@ -394,12 +431,6 @@
       margin-top: 20px;
     }
 
-    @media (max-width: 900px) {
-      .process-strip {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
     .process-tile {
       border-radius: 12px;
       overflow: hidden;
@@ -413,7 +444,16 @@
       margin-top: 12px;
     }
 
-    /* Contact / CV */
+    /* CV section with tint */
+
+    #cv {
+      background: rgba(184, 196, 169, 0.10);
+      border-radius: 18px;
+      padding: 32px 20px 32px;
+      margin-bottom: 64px;
+    }
+
+    /* Contact / CV inner */
 
     .contact-box {
       border-top: 1px solid var(--border-soft);
@@ -464,7 +504,7 @@
     <!-- Hero -->
     <section>
       <div class="hero">
-        <!-- Image LEFT now -->
+        <!-- Image LEFT -->
         <div>
           <div class="hero-card">
             <div class="hero-image-wrap">
@@ -476,7 +516,7 @@
           </div>
         </div>
 
-        <!-- Text RIGHT -->
+        <!-- Text RIGHT (colored block) -->
         <div>
           <div class="section-label">Creative Technology &amp; Design</div>
           <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
@@ -505,11 +545,9 @@
       </p>
 
       <div class="feature-card">
-        <div class="feature-image-main">
-          <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
-          <div class="feature-image-overlay">
-            <img src="img/cad.jpeg" alt="Completed robotic lawn mower view">
-          </div>
+        <div class="feature-images-column">
+          <img src="img/lawn.jpeg" class="feature-img-main" alt="Robotic lawn mower prototype">
+          <img src="img/cad.jpeg" class="feature-img-secondary" alt="Completed robotic lawn mower view">
         </div>
         <div class="feature-meta">
           <div>
