@@ -10,7 +10,7 @@
 
   <style>
     :root {
-      --bg-page: #f3f4f6;        /* cool light gray */
+      --bg-page: #f3f4f6;
       --bg-shell: #ffffff;
       --text: #0b0f19;
       --muted: #4b5563;
@@ -42,89 +42,72 @@
       text-decoration: none;
     }
 
-    /* Outer shell */
+    /* Sticky top bar */
 
-    .shell {
-      max-width: var(--max-width);
-      margin: 28px auto 60px;
-      background: var(--bg-shell);
-      border-radius: 26px;
-      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
-      padding: 0 28px 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at -10% 0%, rgba(111,164,175,0.25), transparent 45%),
-                  radial-gradient(circle at 110% 20%, rgba(184,196,169,0.25), transparent 50%);
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .shell-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Sticky header */
-
-    header {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
+      z-index: 50;
+      background: linear-gradient(90deg, #6FA4AF, #B8C4A9);
+      color: #ffffff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 4px 14px;
-      margin: 0 -28px 20px;
-      border-bottom: 1px solid var(--border-soft);
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(15,23,42,0.18);
     }
 
-    header .name {
-      font-size: 22px;
+    .topbar .name {
+      font-size: 24px;
       font-weight: 600;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    header .nav {
+    .topbar .nav {
       display: flex;
-      gap: 26px;
-      font-size: 14px;
+      gap: 28px;
+      font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
     }
 
-    header .nav a {
+    .topbar .nav a {
       position: relative;
       padding-bottom: 3px;
     }
 
-    header .nav a::after {
+    .topbar .nav a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
       width: 0;
       height: 2px;
-      background: var(--accent-1);
+      background: #ffffff;
       transition: width 0.15s ease-out;
     }
 
-    header .nav a:hover::after { width: 100%; }
+    .topbar .nav a:hover::after { width: 100%; }
 
     @media (max-width: 720px) {
-      header {
+      .topbar {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
       }
+    }
+
+    /* Outer shell */
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 24px auto 60px;
+      background: var(--bg-shell);
+      border-radius: 26px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+      padding: 0 28px 40px;
+      position: relative;
     }
 
     section {
@@ -153,13 +136,17 @@
       margin: 0 0 18px;
     }
 
-    /* Hero */
+    /* HERO – biggest area with colored background */
 
     .hero {
+      background: rgba(111,164,175,0.18); /* light blue-greenish */
+      border-radius: 24px;
+      padding: 22px 22px 26px;
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
       gap: 28px;
       align-items: center;
+      border: 1px solid var(--border-soft);
     }
 
     @media (max-width: 800px) {
@@ -171,8 +158,8 @@
     .hero-card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
-      padding: 16px;
-      background: rgba(255,255,255,0.92);
+      padding: 14px;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -181,7 +168,7 @@
     .hero-image-wrap {
       border-radius: 16px;
       overflow: hidden;
-      max-width: 260px;          /* smaller frame */
+      max-width: 240px;          /* smaller frame */
       margin: 0 auto;
     }
 
@@ -227,12 +214,12 @@
       background: #f9fafb;
     }
 
-    /* Feature project – Lawn mower */
+    /* Lawn mower feature */
 
     .case-feature {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
-      background: rgba(255,255,255,0.95);
+      background: #ffffff;
       padding: 18px 18px 20px;
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -260,7 +247,7 @@
     }
 
     .case-meta {
-      background: rgba(111,164,175,0.10);
+      background: rgba(111,164,175,0.08);
       border-radius: 18px;
       border: 1px solid var(--border-soft);
       padding: 16px 18px 18px;
@@ -307,7 +294,7 @@
     .case-row {
       border-radius: 18px;
       border: 1px solid var(--border-soft);
-      background: rgba(255,255,255,0.96);
+      background: #ffffff;
       padding: 14px 16px;
       display: grid;
       grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.3fr);
@@ -356,6 +343,14 @@
     .case-row.ux .case-tagbar,
     .case-row.ux .case-thumb {
       border-color: var(--accent-1);
+    }
+
+    .case-tagbar {
+      width: 44px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent-1);
+      margin-bottom: 10px;
     }
 
     /* CV section */
@@ -419,7 +414,7 @@
       border: 1px solid var(--border-soft);
       padding: 10px;
       background: rgba(111,164,175,0.10);
-      max-width: 280px;          /* smaller frame */
+      max-width: 260px;          /* smaller frame */
     }
 
     .about-text-card {
@@ -466,197 +461,195 @@
   </style>
 </head>
 <body>
+
+  <!-- Sticky top bar -->
+  <div class="topbar">
+    <div class="name">Naz Khani</div>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#cv">CV</a>
+      <a href="#about">About me</a>
+    </nav>
+  </div>
+
   <div class="shell">
-    <div class="shell-inner">
-
-      <!-- Header -->
-      <header>
-        <div class="name">Naz Khani</div>
-        <nav class="nav">
-          <a href="#projects">Projects</a>
-          <a href="#cv">CV</a>
-          <a href="#about">About me</a>
-        </nav>
-      </header>
-
-      <!-- Hero -->
-      <section>
-        <div class="hero">
-          <!-- Image LEFT -->
-          <div>
-            <div class="hero-card">
-              <div class="hero-image-wrap">
-                <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
-              </div>
-              <div class="hero-caption">
-                Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
-              </div>
+    <!-- Hero -->
+    <section>
+      <div class="hero">
+        <!-- Image LEFT -->
+        <div>
+          <div class="hero-card">
+            <div class="hero-image-wrap">
+              <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
             </div>
-          </div>
-
-          <!-- Text RIGHT -->
-          <div>
-            <div class="section-label">Creative Technology &amp; Design</div>
-            <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
-            <div class="hero-roles">
-              Designer · Creative Technologist · PhD Applicant
-            </div>
-            <p class="hero-sub">
-              Naz works across interaction, physical computing, and visual storytelling to design
-              experiences that feel thoughtful, playful, and precise.
-            </p>
-            <div class="hero-pill-row">
-              <span class="pill">Interactive installations</span>
-              <span class="pill">UX &amp; visual design</span>
-              <span class="pill">Digital fabrication</span>
+            <div class="hero-caption">
+              Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- Projects: Lawn mower feature -->
-      <section id="projects">
-        <div class="section-label">Projects</div>
-        <h2 class="section-title">Robotic Lawn Mower</h2>
-        <p class="section-sub">
-          Autonomous lawn-mowing prototype focused on mechanical configuration, safety, and form.
-        </p>
-
-        <article class="case-feature">
-          <div class="case-media-column">
-            <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
-            <img src="img/cad.jpeg" alt="Completed robotic lawn mower view">
+        <!-- Text RIGHT -->
+        <div>
+          <div class="section-label">Creative Technology &amp; Design</div>
+          <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
+          <div class="hero-roles">
+            Designer · Creative Technologist · PhD Applicant
           </div>
-          <div class="case-meta">
-            <div>
-              <div class="case-tagbar"></div>
-              <h3 class="case-title">Robotics, form, and function</h3>
-              <p class="case-text">
-                Built as a working prototype, the mower combines structural design, motion planning
-                constraints, and attention to user safety and legibility.
-              </p>
-            </div>
-            <div class="case-meta-tags">
-              Robotics · Prototyping · Systems thinking
+          <p class="hero-sub">
+            Naz works across interaction, physical computing, and visual storytelling to design
+            experiences that feel thoughtful, playful, and precise.
+          </p>
+          <div class="hero-pill-row">
+            <span class="pill">Interactive installations</span>
+            <span class="pill">UX &amp; visual design</span>
+            <span class="pill">Digital fabrication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects: Lawn mower feature -->
+    <section id="projects">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">Robotic Lawn Mower</h2>
+      <p class="section-sub">
+        Autonomous lawn-mowing prototype focused on mechanical configuration, safety, and form.
+      </p>
+
+      <article class="case-feature">
+        <div class="case-media-column">
+          <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
+          <img src="img/cad.jpeg" alt="Completed robotic lawn mower view">
+        </div>
+        <div class="case-meta">
+          <div>
+            <div class="case-tagbar"></div>
+            <h3 class="case-title">Robotics, form, and function</h3>
+            <p class="case-text">
+              Built as a working prototype, the mower combines structural design, motion planning
+              constraints, and attention to user safety and legibility.
+            </p>
+          </div>
+          <div class="case-meta-tags">
+            Robotics · Prototyping · Systems thinking
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Projects: Solar + UX -->
+    <section>
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">Interactive installation &amp; UX research</h2>
+      <p class="section-sub">
+        A pairing of spatial installation work and research-driven UX synthesis.
+      </p>
+
+      <div class="cases-list">
+        <!-- Solar Umbrella -->
+        <article class="case-row">
+          <div class="case-thumb">
+            <img src="img/solar.jpeg" alt="Interactive Solar Umbrella">
+          </div>
+          <div>
+            <div class="case-tagbar"></div>
+            <h3 class="case-info-title">Interactive Solar Umbrella</h3>
+            <p class="case-info-text">
+              Responsive outdoor installation using light and embedded electronics to shape how
+              people share space in a courtyard or patio setting.
+            </p>
+            <div class="case-info-tags">
+              Installation · Physical computing · Light &amp; space
             </div>
           </div>
         </article>
-      </section>
 
-      <!-- Projects: Solar + UX -->
-      <section>
-        <div class="section-label">Projects</div>
-        <h2 class="section-title">Interactive installation &amp; UX research</h2>
+        <!-- UX Research project -->
+        <article class="case-row ux">
+          <div class="case-thumb">
+            <img src="img/ux.jpeg" alt="UX research whiteboard with connections">
+          </div>
+          <div>
+            <div class="case-tagbar"></div>
+            <h3 class="case-info-title">UX Research Exploration</h3>
+            <p class="case-info-text">
+              Synthesis of user interviews and observations, mapping behaviors and decisions
+              through affinity diagrams and whiteboard sessions to uncover patterns.
+            </p>
+            <div class="case-info-tags">
+              UX research · Synthesis · Insight mapping
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <div class="section-label">CV</div>
+      <div id="cv-block">
+        <h2 class="section-title">Curriculum Vitae</h2>
         <p class="section-sub">
-          A pairing of spatial installation work and research-driven UX synthesis.
+          Full academic and professional CV with education, teaching, and additional projects.
         </p>
-
-        <div class="cases-list">
-          <!-- Solar Umbrella -->
-          <article class="case-row">
-            <div class="case-thumb">
-              <img src="img/solar.jpeg" alt="Interactive Solar Umbrella">
-            </div>
-            <div>
-              <div class="case-tagbar"></div>
-              <h3 class="case-info-title">Interactive Solar Umbrella</h3>
-              <p class="case-info-text">
-                Responsive outdoor installation using light and embedded electronics to shape how
-                people share space in a courtyard or patio setting.
-              </p>
-              <div class="case-info-tags">
-                Installation · Physical computing · Light &amp; space
-              </div>
-            </div>
-          </article>
-
-          <!-- UX Research project -->
-          <article class="case-row ux">
-            <div class="case-thumb">
-              <img src="img/ux.jpeg" alt="UX research whiteboard with connections">
-            </div>
-            <div>
-              <div class="case-tagbar"></div>
-              <h3 class="case-info-title">UX Research Exploration</h3>
-              <p class="case-info-text">
-                Synthesis of user interviews and observations, mapping behaviors and decisions
-                through affinity diagrams and whiteboard sessions to uncover patterns.
-              </p>
-              <div class="case-info-tags">
-                UX research · Synthesis · Insight mapping
-              </div>
-            </div>
-          </article>
+        <div class="contact-box">
+          <div class="contact-text">
+            The CV includes additional teaching experience, coursework, and design work not shown here.
+          </div>
+          <div>
+            <a class="btn" href="saharnazcvR.pdf">Download CV</a>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CV -->
-      <section id="cv">
-        <div class="section-label">CV</div>
-        <div id="cv-block">
-          <h2 class="section-title">Curriculum Vitae</h2>
-          <p class="section-sub">
-            Full academic and professional CV with education, teaching, and additional projects.
+    <!-- About / Digital fab & process -->
+    <section id="about">
+      <div class="section-label">About me</div>
+      <h2 class="section-title">Digital fabrication &amp; making</h2>
+      <p class="section-sub">
+        Background, interests, and a glimpse into hands-on work in the lab.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-photo-card">
+          <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
+        </div>
+        <div class="about-text-card">
+          <p>
+            Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer in the MS
+            Creative Technology &amp; Design program at CU Boulder. Her work spans interactive
+            installations, UX, and physical prototyping.
           </p>
-          <div class="contact-box">
-            <div class="contact-text">
-              The CV includes additional teaching experience, coursework, and design work not shown here.
-            </div>
-            <div>
-              <a class="btn" href="saharnazcvR.pdf">Download CV</a>
-            </div>
+          <p>
+            She enjoys moving between digital and physical tools: sketching and interface design,
+            coding behaviors, and using fabrication equipment to bring ideas into space.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Digital fabrication lab</span>
+            <span class="pill">Interaction design</span>
+            <span class="pill">Research-through-design</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- About / Digital fab & process -->
-      <section id="about">
-        <div class="section-label">About me</div>
-        <h2 class="section-title">Digital fabrication &amp; making</h2>
-        <p class="section-sub">
-          Background, interests, and a glimpse into hands-on work in the lab.
-        </p>
-
-        <div class="about-grid">
-          <div class="about-photo-card">
-            <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
-          </div>
-          <div class="about-text-card">
-            <p>
-              Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer in the MS
-              Creative Technology &amp; Design program at CU Boulder. Her work spans interactive
-              installations, UX, and physical prototyping.
-            </p>
-            <p>
-              She enjoys moving between digital and physical tools: sketching and interface design,
-              coding behaviors, and using fabrication equipment to bring ideas into space.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Digital fabrication lab</span>
-              <span class="pill">Interaction design</span>
-              <span class="pill">Research-through-design</span>
-            </div>
-          </div>
+      <div class="process-strip">
+        <div class="process-tile">
+          <img src="img/mach1.jpeg" alt="Fabrication process 1">
         </div>
-
-        <div class="process-strip">
-          <div class="process-tile">
-            <img src="img/mach1.jpeg" alt="Fabrication process 1">
-          </div>
-          <div class="process-tile">
-            <img src="img/mach2.jpeg" alt="Fabrication process 2">
-          </div>
-          <div class="process-tile">
-            <img src="img/mach3.jpeg" alt="Fabrication process 3">
-          </div>
+        <div class="process-tile">
+          <img src="img/mach2.jpeg" alt="Fabrication process 2">
         </div>
-
-        <div class="process-caption">
-          Selected moments from the digital fabrication lab.
+        <div class="process-tile">
+          <img src="img/mach3.jpeg" alt="Fabrication process 3">
         </div>
-      </section>
+      </div>
 
-    </div>
+      <div class="process-caption">
+        Selected moments from the digital fabrication lab.
+      </div>
+    </section>
+
   </div>
 </body>
 </html>
