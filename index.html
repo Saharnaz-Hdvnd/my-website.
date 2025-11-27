@@ -1,175 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Naz Khani – Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Naz Khani – Creative Technology & Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #4b5563;
+      --accent-1: #6FA4AF; /* blue-green */
+      --accent-2: #B8C4A9; /* sage */
+      --border-soft: #e5e7eb;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-        margin: 0;
-        font-family: system-ui, sans-serif;
-        background: #fff;
-        color: #000;
-        line-height: 1.55;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
     }
 
-    h1, h2, h3 {
-        font-weight: 600;
-        margin-bottom: 12px;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    h1 { font-size: 40px; }
-    h2 { font-size: 30px; }
-    h3 { font-size: 22px; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    header .name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    header .nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    header .nav a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    header .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent-1);
+      transition: width 0.15s ease-out;
+    }
+
+    header .nav a:hover::after {
+      width: 100%;
+    }
 
     section {
-        max-width: 950px;
-        margin: 0 auto;
-        padding: 60px 20px;
-        border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 64px;
     }
 
-    img.big {
-        width: 100%;
-        height: auto;
-        border-radius: 6px;
-        margin-bottom: 20px;
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 12px;
     }
 
-    img.medium {
-        width: 70%;
-        display: block;
-        margin: 25px auto;
-        border-radius: 4px;
+    .section-title {
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0 0 8px;
     }
 
-    .caption {
-        color: #444;
-        margin-top: 8px;
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 0 20px;
     }
 
     .accent-line {
-        width: 60px;
-        height: 4px;
-        background: #6FA4AF; /* blue-green */
-        margin: 12px 0 24px 0;
-        border-radius: 4px;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-1);
+      border-radius: 999px;
+      margin-bottom: 24px;
     }
 
-    .grid-4 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-        margin-top: 25px;
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
     }
 
-    .grid-4 img {
-        width: 100%;
-        border-radius: 6px;
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 46px);
+      line-height: 1.05;
+      margin: 0 0 12px;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-roles {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 6px 12px;
+      font-size: 12px;
+      background: #f9fafb;
+    }
+
+    .hero-card {
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
+    }
+
+    .hero-image-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .hero-caption {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Feature project (Solar) */
+
+    .feature-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+
+    @media (max-width: 900px) {
+      .feature-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .feature-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-meta {
+      padding: 20px 20px 22px;
+      border-left: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #f9fafb;
+    }
+
+    @media (max-width: 900px) {
+      .feature-meta {
+        border-left: none;
+        border-top: 1px solid var(--border-soft);
+      }
+    }
+
+    .feature-tagbar {
+      width: 52px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent-1);
+      margin-bottom: 14px;
+    }
+
+    .feature-title {
+      font-size: 22px;
+      margin: 0 0 6px;
+    }
+
+    .feature-text {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    .feature-tags {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    /* Projects grid (Lawn + UX side by side) */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project-card {
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+
+    .project-image-main {
+      position: relative;
+    }
+
+    .project-image-main img {
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .project-image-overlay {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 40%;
+      border-radius: 10px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+
+    .project-body {
+      padding: 16px 16px 18px;
+    }
+
+    .project-tagbar {
+      width: 46px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      margin-bottom: 12px;
+    }
+
+    .project-title {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+
+    .project-text {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .project-card.ux .project-tagbar {
+      background: var(--accent-1);
+    }
+
+    /* Process / lab strip */
+
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .process-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .process-tile {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+
+    .process-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* Contact */
+
+    .contact-box {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-text {
+      font-size: 15px;
+      color: var(--muted);
     }
 
     .btn {
-        display: inline-block;
-        padding: 12px 20px;
-        border: 2px solid #000;
-        color: #000;
-        text-decoration: none;
-        font-size: 18px;
-        border-radius: 4px;
-        margin-top: 20px;
+      border-radius: 999px;
+      border: 1px solid var(--text);
+      padding: 10px 18px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: transparent;
+      cursor: pointer;
     }
 
-</style>
+    .btn:hover {
+      background: var(--text);
+      color: #fff;
+    }
+
+  </style>
 </head>
 <body>
+  <div class="shell">
 
-<!-- HERO -->
-<section>
-    <img src="img/naz.jpeg" class="big" alt="Naz Khani portrait">
+    <!-- Header -->
+    <header>
+      <div class="name">Naz Khani</div>
+      <nav class="nav">
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <h1>Naz Khani</h1>
-    <div class="accent-line"></div>
+    <!-- Hero -->
+    <section>
+      <div class="hero">
+        <div>
+          <div class="section-label">Portfolio & PhD applications</div>
+          <h1 class="hero-title">Creative Technology &amp; Design</h1>
+          <div class="hero-roles">
+            Designer · Creative Technologist · PhD Applicant
+          </div>
+          <p class="hero-sub">
+            Naz Khani works across interaction, physical computing, and visual storytelling
+            to design experiences that feel thoughtful, playful, and precise.
+          </p>
+          <div class="hero-pill-row">
+            <span class="pill">Interactive installations</span>
+            <span class="pill">UX &amp; visual design</span>
+            <span class="pill">Digital fabrication</span>
+          </div>
+        </div>
 
-    <p style="font-size: 20px; max-width: 700px;">
-        Creative Technologist & Designer<br>
-        PhD Applicant in Creative Technology & Design
-    </p>
-</section>
+        <div>
+          <div class="hero-card">
+            <div class="hero-image-wrap">
+              <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
+            </div>
+            <div class="hero-caption">
+              Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- SOLAR UMBRELLA -->
-<section>
-    <h2>Interactive Solar Umbrella</h2>
-    <div class="accent-line"></div>
+    <!-- Featured work: Solar Umbrella -->
+    <section id="work">
+      <div class="section-label">Featured</div>
+      <h2 class="section-title">Interactive Solar Umbrella</h2>
+      <p class="section-sub">
+        Responsive outdoor installation using light and embedded electronics to shape how people
+        share space.
+      </p>
+      <div class="feature-card">
+        <div>
+          <img src="img/solar.jpeg" class="feature-image" alt="Interactive Solar Umbrella">
+        </div>
+        <div class="feature-meta">
+          <div>
+            <div class="feature-tagbar"></div>
+            <h3 class="feature-title">Solar-powered, softly animated light</h3>
+            <p class="feature-text">
+              The Solar Umbrella explores how subtle lighting behaviors can encourage people to slow down,
+              notice energy use, and experience a shared outdoor setting differently.
+            </p>
+          </div>
+          <div class="feature-tags">
+            Installation · Physical computing · Light &amp; space
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <img src="img/solar.jpeg" class="big" alt="Solar Umbrella">
+    <!-- Projects grid: Lawn + UX -->
+    <section>
+      <div class="section-label">Selected work</div>
+      <h2 class="section-title">Robotics &amp; UX research</h2>
+      <p class="section-sub">
+        A glimpse into hardware-oriented and research-driven projects.
+      </p>
 
-    <p style="font-size: 18px; max-width: 700px;">
-        An interactive installation exploring light, space, and behavior through
-        responsive illumination and embedded electronics.
-    </p>
-</section>
+      <div class="projects-grid">
+        <!-- Robotic Lawn Mower -->
+        <article class="project-card">
+          <div class="project-image-main">
+            <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
+            <div class="project-image-overlay">
+              <img src="img/cad.jpeg" alt="Alternative view of the robotic lawn mower">
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tagbar"></div>
+            <h3 class="project-title">Robotic Lawn Mower</h3>
+            <p class="project-text">
+              Autonomous lawn-mowing prototype focused on mechanical configuration, safety, and form.
+              Built through iterative prototyping and testing.
+            </p>
+            <div class="project-meta">
+              Robotics · Prototyping · Systems thinking
+            </div>
+          </div>
+        </article>
 
-<!-- ROBOTIC LAWN MOWER -->
-<section>
-    <h2>Robotic Lawn Mower</h2>
-    <div class="accent-line"></div>
+        <!-- UX Research project -->
+        <article class="project-card ux">
+          <div class="project-image-main">
+            <img src="img/ux.jpeg" alt="UX research whiteboard with connections">
+          </div>
+          <div class="project-body">
+            <div class="project-tagbar"></div>
+            <h3 class="project-title">UX Research Exploration</h3>
+            <p class="project-text">
+              Synthesis of user interviews and observations, mapping behaviors and decisions through
+              affinity diagrams and whiteboard sessions to uncover patterns.
+            </p>
+            <div class="project-meta">
+              UX research · Synthesis · Insight mapping
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <img src="img/lawn.jpeg" class="big" alt="Robotic lawn mower">
+    <!-- Process / Fabrication -->
+    <section id="process">
+      <div class="section-label">Process</div>
+      <h2 class="section-title">Digital fabrication &amp; making</h2>
+      <p class="section-sub">
+        Working in the digital fabrication lab: machining, laser cutting, and building physical prototypes
+        that connect ideas to materials.
+      </p>
 
-    <p style="font-size: 18px; max-width: 700px;">
-        Prototype of an automated lawn-mowing robot. Focused on mechanical design,
-        functionality, and form.
-    </p>
+      <div class="process-strip">
+        <div class="process-tile">
+          <img src="img/mach1.jpeg" alt="Fabrication process 1">
+        </div>
+        <div class="process-tile">
+          <img src="img/mach2.jpeg" alt="Fabrication process 2">
+        </div>
+        <div class="process-tile">
+          <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
+        </div>
+        <div class="process-tile">
+          <img src="img/mach3.jpeg" alt="Fabrication process 3">
+        </div>
+      </div>
 
-    <img src="img/cad.jpeg" class="medium" alt="CAD design">
-    <div class="caption" style="text-align:center;">CAD / Design process</div>
-</section>
+      <div class="process-caption">
+        Selected moments from the digital fabrication lab.
+      </div>
+    </section>
 
-<!-- UX RESEARCH PROJECT -->
-<section>
-    <h2>UX Research Project</h2>
-    <div class="accent-line"></div>
+    <!-- Contact / CV -->
+    <section id="contact">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get in touch</h2>
+      <div class="accent-line"></div>
 
-    <img src="img/ux.jpeg" class="big" alt="UX research whiteboard">
+      <div class="contact-box">
+        <div class="contact-text">
+          For PhD programs, collaborations, or portfolio requests, feel free to reach out.<br>
+          <strong>Email:</strong> your-email-here<br>
+          <strong>LinkedIn:</strong> add-link-here
+        </div>
+        <div>
+          <a class="btn" href="saharnazcvR.pdf">Download CV</a>
+        </div>
+      </div>
+    </section>
 
-    <p style="font-size: 18px; max-width: 700px;">
-        Research exploration focused on user behavior, decision processes, and
-        experience mapping. Included synthesis on whiteboards and structured insight
-        generation.
-    </p>
-</section>
-
-<!-- FAB LAB / PROCESS -->
-<section>
-    <h2>Process & Fabrication Work</h2>
-    <div class="accent-line"></div>
-
-    <p style="font-size: 18px; max-width: 700px;">
-        Work inside the Digital Fabrication Lab: prototyping, machining, laser cutting,
-        and hands-on making.
-    </p>
-
-    <div class="grid-4">
-        <img src="img/mach1.jpeg" alt="Machine work 1">
-        <img src="img/mach2.jpeg" alt="Machine work 2">
-        <img src="img/nazatwork.jpeg" alt="Naz at work">
-        <img src="img/mach3.jpeg" alt="Machine work 3">
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section>
-    <h2>Contact</h2>
-    <div class="accent-line"></div>
-
-    <p style="font-size: 18px;">
-        Email: <strong>your-email-here</strong><br>
-        LinkedIn: add link here
-    </p>
-
-    <a class="btn" href="saharnazcvR.pdf">Download CV</a>
-</section>
-
+  </div>
 </body>
 </html>
