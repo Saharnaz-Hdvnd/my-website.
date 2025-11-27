@@ -1,1026 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Naz Khani | Creative Technology & Design</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-      :root {
-  --bg: #ffffff;         /* base white */
-  --bg-alt: #F4E9D7;     /* very light sand as subtle panel background */
-  --text: #111827;       /* dark slate text */
-  --muted: #6b7280;      /* slate gray for secondary text */
+<meta charset="UTF-8">
+<title>Naz Khani – Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  --accent: #D97D55;     /* warm terracotta: primary accent */
-  --accent-2: #6FA4AF;   /* cool teal: secondary accent */
-
-  --accent-soft: rgba(217, 125, 85, 0.08); /* subtle terracotta tint */
-  --accent-soft-2: rgba(111, 164, 175, 0.08); /* subtle teal tint */
-
-  --panel-bg: #B8C4A9;   /* green-gray for very subtle blocks */
-
-  --card-bg: #ffffff;
-  --border-soft: #e5e7eb;
-
-  --radius-xl: 22px;
-  --radius-lg: 14px;
-
-  --shadow-soft: 0 12px 32px rgba(0,0,0,0.06);
-  --shadow-subtle: 0 8px 20px rgba(0,0,0,0.04);
-
-  --max-width: 1120px;
-}
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+<style>
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #fdf7f1, var(--bg));
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: #fff;
+        color: #000;
+        line-height: 1.55;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    h1, h2, h3 {
+        font-weight: 600;
+        margin-bottom: 12px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    h3 { font-size: 22px; }
+
+    section {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 60px 20px;
+        border-bottom: 1px solid #e5e5e5;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    img.big {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        margin-bottom: 20px;
     }
 
-    .shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 4rem;
+    img.medium {
+        width: 70%;
+        display: block;
+        margin: 25px auto;
+        border-radius: 4px;
     }
 
-    /* Header / nav */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom,
-        rgba(247, 244, 241, 0.94),
-        rgba(247, 244, 241, 0.84),
-        transparent
-      );
-      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+    .caption {
+        color: #444;
+        margin-top: 8px;
     }
 
-    .site-header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
+    .accent-line {
+        width: 60px;
+        height: 4px;
+        background: #6FA4AF; /* blue-green */
+        margin: 12px 0 24px 0;
+        border-radius: 4px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
+    .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-top: 25px;
     }
 
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f9e3d7, #6e8c74);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7),
-                  0 10px 20px rgba(15, 23, 42, 0.15);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .brand-name {
-      font-weight: 600;
-    }
-
-    .brand-tagline {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
-    .nav {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 0.2rem;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.18s ease-out;
-    }
-
-    .nav a:hover::after {
-      width: 100%;
-    }
-
-    @media (max-width: 720px) {
-      .site-header-inner {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    /* Hero */
-
-    .hero {
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 4vw, 2.9rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin: 0 0 0.8rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 30rem;
-      margin-bottom: 1.9rem;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .badge-pill {
-      font-size: 0.78rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(110, 140, 116, 0.26);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 1.25rem;
+    .grid-4 img {
+        width: 100%;
+        border-radius: 6px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 0.7rem 1.35rem;
-      font-size: 0.9rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.14s ease-out, box-shadow 0.16s ease-out,
-                  background 0.16s ease-out, border-color 0.16s ease-out;
+        display: inline-block;
+        padding: 12px 20px;
+        border: 2px solid #000;
+        color: #000;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 4px;
+        margin-top: 20px;
     }
 
-
-
-    .btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: var(--shadow-soft);
-}
-.btn-primary:hover {
-  background: #c86f4a;
-  transform: translateY(-1px);
-}
-
-
-
-    .btn-secondary {
-  background: var(--accent-soft-2);
-  border: 1px solid rgba(111,164,175,0.4);
-  color: var(--text);
-}
-.btn-secondary:hover {
-  background: var(--accent-soft);
-}
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 260px;
-    }
-
-    .hero-panel {
-      position: relative;
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at 20% 0%, #fdf3ea, #edf2ec);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .floating-shape {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(0);
-      opacity: 0.6;
-      mix-blend-mode: multiply;
-      animation: float 18s ease-in-out infinite alternate;
-    }
-
-    .shape-1 {
-  background: radial-gradient(circle at 20% 10%, #F4E9D7, #D97D55);
-}
-.shape-2 {
-  background: radial-gradient(circle at 80% 70%, #B8C4A9, #6FA4AF);
-}
-
-    .hero-photo-placeholder {
-      position: relative;
-      z-index: 2;
-      border-radius: 18px;
-      background: linear-gradient(145deg, #f9f4f0, #f1e4db);
-      padding: 0.9rem;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      margin-bottom: 1.1rem;
-    }
-
-    .avatar-circle {
-      width: 70px;
-      height: 70px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 35% 20%, #ffece0, #c69b87);
-      box-shadow: 0 14px 40px rgba(148, 103, 84, 0.45);
-      flex-shrink: 0;
-    }
-
-    .hero-photo-text h3 {
-      margin: 0 0 0.25rem;
-      font-size: 0.95rem;
-    }
-
-    .hero-photo-text p {
-      margin: 0;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-tag-strip {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      font-size: 0.72rem;
-      margin-top: 0.4rem;
-    }
-
-    .hero-tag {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      background: rgba(255, 255, 255, 0.85);
-      color: var(--muted);
-    }
-
-    .hero-caption {
-      margin-top: 0.9rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    @keyframes float {
-      0% { transform: translate3d(0, 0, 0) scale(1); }
-      100% { transform: translate3d(16px, -16px, 0) scale(1.08); }
-    }
-
-    /* Sections */
-
-    section {
-      margin-bottom: 3.25rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      letter-spacing: -0.01em;
-      margin: 0;
-    }
-
-    .section-kicker {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* Cards / grids */
-
-    .grid {
-      display: grid;
-      gap: 1.4rem;
-    }
-
-    @media (min-width: 780px) {
-      .grid-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .grid-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .card {
-      border-radius: var(--radius-lg);
-      background: var(--card-bg);
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-subtle);
-      padding: 1.1rem 1.2rem;
-    }
-
-    .card-subtle {
-      background: var(--bg-alt);
-      box-shadow: none;
-    }
-
-    .project-thumb {
-      border-radius: 16px;
-      background: linear-gradient(135deg, #f4ebe3, #e1efe3);
-      height: 170px;
-      margin-bottom: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-thumb::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.7), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.2s ease-out;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.3rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .project-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin: 0 0 0.35rem;
-    }
-
-    .project-line {
-      font-size: 0.86rem;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .project-question {
-      font-size: 0.8rem;
-      color: #4b5563;
-      margin: 0.3rem 0 0.5rem;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-    }
-
-    .tag {
-      font-size: 0.72rem;
-      padding: 0.22rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.1);
-      color: #4b5563;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
-      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out;
-    }
-
-    .card:hover .project-thumb::after {
-      opacity: 1;
-    }
-
-    /* Process / methods */
-
-    .process-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    @media (min-width: 780px) {
-      .process-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .process-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .process-body {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* About */
-
-    .about-layout {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 820px) {
-      .about-layout {
-        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      }
-    }
-
-    .about-text p {
-      margin: 0 0 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.4rem;
-    }
-
-    .pill {
-      font-size: 0.78rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(110, 140, 116, 0.09);
-      border: 1px solid rgba(110, 140, 116, 0.25);
-      color: #374151;
-    }
-
-    .about-aside {
-      padding: 1rem 1rem;
-      border-radius: var(--radius-lg);
-      background: var(--bg-alt);
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .about-aside strong {
-      color: var(--text);
-    }
-
-    .cv-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-      font-size: 0.84rem;
-    }
-
-    /* Contact */
-
-    .contact-card {
-      text-align: left;
-    }
-
-    .contact-card p {
-      margin-top: 0.4rem;
-      margin-bottom: 0.9rem;
-      font-size: 0.87rem;
-      color: var(--muted);
-    }
-
-    .contact-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.2rem 0 0.8rem;
-      font-size: 0.85rem;
-    }
-
-    .contact-list li {
-      margin-bottom: 0.25rem;
-    }
-
-    .contact-label {
-      font-weight: 500;
-      margin-right: 0.25rem;
-    }
-
-    .contact-footnote {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    /* Footer */
-
-    .site-footer {
-      border-top: 1px solid var(--border-soft);
-      padding: 1.5rem 1.25rem 2rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    /* Simple entrance animation */
-
-    .animate-in {
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeUp 0.7s ease-out forwards;
-    }
-
-    .animate-in.delay-1 { animation-delay: 0.12s; }
-    .animate-in.delay-2 { animation-delay: 0.24s; }
-    .animate-in.delay-3 { animation-delay: 0.36s; }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-<div class="page" id="top">
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <div class="brand-text">
-          <span class="brand-name">Naz Khani</span>
-          <span class="brand-tagline">Creative Technology &amp; Design</span>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="#research">Research</a>
-        <a href="#work">Selected work</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<!-- HERO -->
+<section>
+    <img src="img/naz.jpeg" class="big" alt="Naz Khani portrait">
+
+    <h1>Naz Khani</h1>
+    <div class="accent-line"></div>
+
+    <p style="font-size: 20px; max-width: 700px;">
+        Creative Technologist & Designer<br>
+        PhD Applicant in Creative Technology & Design
+    </p>
+</section>
+
+<!-- SOLAR UMBRELLA -->
+<section>
+    <h2>Interactive Solar Umbrella</h2>
+    <div class="accent-line"></div>
+
+    <img src="img/solar.jpeg" class="big" alt="Solar Umbrella">
+
+    <p style="font-size: 18px; max-width: 700px;">
+        An interactive installation exploring light, space, and behavior through
+        responsive illumination and embedded electronics.
+    </p>
+</section>
+
+<!-- ROBOTIC LAWN MOWER -->
+<section>
+    <h2>Robotic Lawn Mower</h2>
+    <div class="accent-line"></div>
+
+    <img src="img/lawn.jpeg" class="big" alt="Robotic lawn mower">
+
+    <p style="font-size: 18px; max-width: 700px;">
+        Prototype of an automated lawn-mowing robot. Focused on mechanical design,
+        functionality, and form.
+    </p>
+
+    <img src="img/cad.jpeg" class="medium" alt="CAD design">
+    <div class="caption" style="text-align:center;">CAD / Design process</div>
+</section>
+
+<!-- UX RESEARCH PROJECT -->
+<section>
+    <h2>UX Research Project</h2>
+    <div class="accent-line"></div>
+
+    <img src="img/ux.jpeg" class="big" alt="UX research whiteboard">
+
+    <p style="font-size: 18px; max-width: 700px;">
+        Research exploration focused on user behavior, decision processes, and
+        experience mapping. Included synthesis on whiteboards and structured insight
+        generation.
+    </p>
+</section>
+
+<!-- FAB LAB / PROCESS -->
+<section>
+    <h2>Process & Fabrication Work</h2>
+    <div class="accent-line"></div>
+
+    <p style="font-size: 18px; max-width: 700px;">
+        Work inside the Digital Fabrication Lab: prototyping, machining, laser cutting,
+        and hands-on making.
+    </p>
+
+    <div class="grid-4">
+        <img src="img/mach1.jpeg" alt="Machine work 1">
+        <img src="img/mach2.jpeg" alt="Machine work 2">
+        <img src="img/nazatwork.jpeg" alt="Naz at work">
+        <img src="img/mach3.jpeg" alt="Machine work 3">
     </div>
-  </header>
+</section>
 
-  <main class="shell">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-copy animate-in">
-          <div class="eyebrow">Portfolio &amp; PhD applications</div>
-          <h1 class="hero-title">Naz Khani</h1>
-          <div class="hero-badges">
-            <span class="badge-pill">Creative Technologist &amp; Designer</span>
-            <span class="badge-pill">MS Creative Technology &amp; Design · CU Boulder</span>
-            <span class="badge-pill">PhD applicant</span>
-          </div>
-          <p class="hero-subtitle">
-            I design and study interactive experiences that live between art, technology,
-            and everyday life.
-          </p>
-          <div class="hero-actions">
-            <a href="#work" class="btn btn-primary">View research &amp; projects</a>
-            <a href="#research" class="btn btn-secondary">Research interests</a>
-          </div>
-          <p class="hero-note">
-            This site collects selected projects, process, and interests for PhD programs
-            in Creative Technology &amp; Design and related areas.
-          </p>
-        </div>
+<!-- CONTACT -->
+<section>
+    <h2>Contact</h2>
+    <div class="accent-line"></div>
 
-        <div class="hero-visual animate-in delay-1">
-          <div class="hero-panel">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
+    <p style="font-size: 18px;">
+        Email: <strong>your-email-here</strong><br>
+        LinkedIn: add link here
+    </p>
 
-            <div class="hero-photo-placeholder">
-              <div class="avatar-circle">
-                <!-- Replace this circle with <img src="naz-portrait-main.jpg" ...> later -->
-              </div>
-              <div class="hero-photo-text">
-                <h3>Naz Khani</h3>
-                <p>Creative Technology &amp; Design · CU Boulder</p>
-              </div>
-            </div>
+    <a class="btn" href="saharnazcvR.pdf">Download CV</a>
+</section>
 
-            <div class="hero-tag-strip">
-              <span class="hero-tag">Interaction design</span>
-              <span class="hero-tag">Creative coding</span>
-              <span class="hero-tag">Physical computing</span>
-              <span class="hero-tag">Motion &amp; visual storytelling</span>
-            </div>
-
-            <p class="hero-caption">
-              Placeholder portrait + soft motion. Replace with your own image and
-              project thumbnails later.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research interests -->
-    <section id="research" class="animate-in delay-1">
-      <div class="section-header">
-        <h2 class="section-title">Research interests</h2>
-        <p class="section-kicker">
-          Questions behind the projects.
-        </p>
-      </div>
-      <div class="grid grid-2">
-        <article class="card card-subtle">
-          <h3 class="process-title">Embodied &amp; spatial interaction</h3>
-          <p class="process-body">
-            Designing interactive installations and artifacts that respond to movement,
-            light, and sound in physical spaces. Exploring how subtle changes in
-            behavior and ambience shape people’s feelings in a place.
-          </p>
-        </article>
-        <article class="card card-subtle">
-          <h3 class="process-title">Creative tools &amp; learning</h3>
-          <p class="process-body">
-            How creative coding tools, tangible interfaces, and playful prototypes
-            support exploration and learning for people who may not see themselves as
-            “technical.”
-          </p>
-        </article>
-        <article class="card card-subtle">
-          <h3 class="process-title">Speculative &amp; critical design</h3>
-          <p class="process-body">
-            Using speculative interfaces and narratives to question how technologies
-            mediate attention, care, and everyday routines.
-          </p>
-        </article>
-        <article class="card card-subtle">
-          <h3 class="process-title">Methods &amp; evaluation</h3>
-          <p class="process-body">
-            Combining prototyping, observational studies, and qualitative feedback
-            to understand how people actually experience interactive work, and to
-            iterate based on those encounters.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Selected work -->
-    <section id="work" class="animate-in delay-2">
-      <div class="section-header">
-        <h2 class="section-title">Selected work</h2>
-        <p class="section-kicker">
-          Projects at the intersection of interaction design, physical computing, and visual storytelling.
-        </p>
-      </div>
-      <div class="grid grid-2">
-        <!-- Project 1 -->
-        <article class="card">
-          <div class="project-thumb">
-            <!-- Replace with <img src="proj-solar-umbrella-thumb.jpg" alt="Interactive Solar Umbrella" /> -->
-            Project image placeholder
-          </div>
-          <div class="project-meta">
-            <h3 class="project-title">Interactive Solar Umbrella</h3>
-            <span class="tag">Installation</span>
-          </div>
-          <p class="project-line">
-            An interactive outdoor installation exploring light, shade, and micro-interactions
-            using Arduino-controlled LEDs.
-          </p>
-          <p class="project-question">
-            <strong>Research prompt:</strong> How can subtle light behaviors encourage people
-            to notice energy use and shared space?
-          </p>
-          <div class="tag-row">
-            <span class="tag">Arduino</span>
-            <span class="tag">Physical computing</span>
-            <span class="tag">Interaction design</span>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="card">
-          <div class="project-thumb">
-            <!-- <img src="proj-pixel-portrait-thumb.jpg" alt="Pixel Portrait Animation" /> -->
-            Project image placeholder
-          </div>
-          <div class="project-meta">
-            <h3 class="project-title">Pixel Portrait Animation</h3>
-            <span class="tag">Creative coding</span>
-          </div>
-          <p class="project-line">
-            A generative portrait animation that reveals an image through moving particles
-            and flowing typography.
-          </p>
-          <p class="project-question">
-            <strong>Research prompt:</strong> How do motion and gradual reveal
-            change the way we attend to familiar images?
-          </p>
-          <div class="tag-row">
-            <span class="tag">Web</span>
-            <span class="tag">Animation</span>
-            <span class="tag">Visual storytelling</span>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="card">
-          <div class="project-thumb">
-            <!-- <img src="proj-yalda-identity-thumb.jpg" alt="Yalda Night Visual Identity" /> -->
-            Project image placeholder
-          </div>
-          <div class="project-meta">
-            <h3 class="project-title">Yalda Night Visual Identity</h3>
-            <span class="tag">Visual identity</span>
-          </div>
-          <p class="project-line">
-            A visual identity system for an Iranian cultural event, combining typography,
-            motion, and illustration.
-          </p>
-          <p class="project-question">
-            <strong>Research prompt:</strong> How can motion and color carry
-            cultural references without relying on clichés?
-          </p>
-          <div class="tag-row">
-            <span class="tag">Branding</span>
-            <span class="tag">Motion design</span>
-            <span class="tag">Illustration</span>
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article class="card">
-          <div class="project-thumb">
-            <!-- <img src="proj-speculative-ui-thumb.jpg" alt="Speculative Interface Experiment" /> -->
-            Project image placeholder
-          </div>
-          <div class="project-meta">
-            <h3 class="project-title">Speculative Interface Experiment</h3>
-            <span class="tag">Speculative design</span>
-          </div>
-          <p class="project-line">
-            A series of speculative UI prototypes imagining slower, more mindful
-            interfaces instead of constant notifications.
-          </p>
-          <p class="project-question">
-            <strong>Research prompt:</strong> What kinds of interface behaviors
-            invite reflection instead of urgency?
-          </p>
-          <div class="tag-row">
-            <span class="tag">UX</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">Critical design</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Process / methods -->
-    <section id="process" class="animate-in delay-1">
-      <div class="section-header">
-        <h2 class="section-title">Process &amp; methods</h2>
-        <p class="section-kicker">
-          How projects move from idea to experience.
-        </p>
-      </div>
-      <div class="process-grid">
-        <article class="card card-subtle">
-          <h3 class="process-title">Exploration</h3>
-          <p class="process-body">
-            Sketching, storyboarding, and quick digital or physical mockups to map
-            ideas and questions. Collecting references from everyday life, installations,
-            and media.
-          </p>
-        </article>
-        <article class="card card-subtle">
-          <h3 class="process-title">Prototyping</h3>
-          <p class="process-body">
-            Building working prototypes using creative coding, Arduino, and simple
-            fabrication. Iterating on form, motion, and interaction based on how the
-            piece feels in context.
-          </p>
-        </article>
-        <article class="card card-subtle">
-          <h3 class="process-title">Evaluation</h3>
-          <p class="process-body">
-            Informal user studies, observations, and short interviews to see how
-            people actually engage. Adjusting details of timing, light, and feedback
-            to better match the intended experience.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="animate-in delay-2">
-      <div class="section-header">
-        <h2 class="section-title">About Naz</h2>
-        <p class="section-kicker">
-          Background, skills, and what she enjoys working on.
-        </p>
-      </div>
-      <div class="about-layout">
-        <div class="about-text card card-subtle">
-          <p>
-            Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer
-            graduating from the MS in Creative Technology &amp; Design at the
-            University of Colorado Boulder. She is interested in how interactive
-            systems and designed artifacts shape everyday experiences of light, space,
-            play, and connection.
-          </p>
-          <p>
-            Her work often combines physical computing, visual design, and creative
-            coding to build prototypes that can be experienced, not just imagined.
-            She enjoys moving between code and craft — prototyping with Arduino one day,
-            refining visual systems the next.
-          </p>
-
-          <div class="pill-row">
-            <span class="pill">Interaction design</span>
-            <span class="pill">Creative coding (web / p5.js)</span>
-            <span class="pill">Physical computing (Arduino)</span>
-            <span class="pill">Motion &amp; visual design</span>
-            <span class="pill">Prototyping &amp; user testing</span>
-          </div>
-
-          <a href="Naz-Khani-CV.pdf" class="cv-link">
-            <span>Download CV (PDF)</span>
-            <span>↗</span>
-          </a>
-        </div>
-
-        <aside class="about-aside">
-          <p>
-            <strong>Education</strong><br />
-            MS Creative Technology &amp; Design<br />
-            University of Colorado Boulder, 2025
-          </p>
-          <p>
-            <strong>Current focus</strong><br />
-            Applying to PhD programs in Creative Technology &amp; Design and related
-            areas, with an emphasis on interactive installations, creative tools,
-            and research-through-design.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="animate-in delay-3">
-      <div class="section-header">
-        <h2 class="section-title">Let’s connect</h2>
-        <p class="section-kicker">
-          For PhD programs, collaborations, or portfolio requests.
-        </p>
-      </div>
-      <div class="card contact-card">
-        <p>
-          Naz is open to collaborations, internships, and full-time opportunities in
-          creative technology, interaction design, and related fields — as well as
-          conversations about potential PhD supervision and research fit.
-        </p>
-        <ul class="contact-list">
-          <li>
-            <span class="contact-label">Email:</span>
-            <a href="mailto:naz.email@example.com">naz.email@example.com</a>
-            <!-- Replace with real email -->
-          </li>
-          <li>
-            <span class="contact-label">LinkedIn:</span>
-            <a href="https://linkedin.com">LinkedIn profile</a>
-            <!-- Replace with real profile -->
-          </li>
-          <li>
-            <span class="contact-label">Portfolio:</span>
-            <span>Downloadable PDF and additional materials available on request.</span>
-          </li>
-        </ul>
-        <a href="mailto:naz.email@example.com" class="btn btn-primary">
-          Say hello
-        </a>
-        <p class="contact-footnote">
-          This site is a living portfolio; new projects and process notes will be
-          added over time.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© <span id="year-span">2025</span> Naz Khani.</span>
-      <span>Built as part of the MS Creative Technology &amp; Design at CU Boulder.</span>
-    </div>
-  </footer>
-</div>
-
-<script>
-  // Simple dynamic year (no other JS logic yet)
-  const y = new Date().getFullYear();
-  const el = document.getElementById('year-span');
-  if (el) el.textContent = y;
-</script>
 </body>
 </html>
-
