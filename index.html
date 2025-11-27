@@ -10,15 +10,14 @@
 
   <style>
     :root {
-      --bg-page: #f3f4f6;
+      --bg-page: #f3f4f6;        /* cool light gray */
       --bg-shell: #ffffff;
-      --text: #000000;
+      --text: #0b0f19;
       --muted: #4b5563;
-      --accent-1: #6FA4AF; /* blue-green */
-      --accent-2: #B8C4A9; /* sage */
-      --accent-warm: #D97D55; /* warm accent (sparingly) */
+      --accent-1: #6FA4AF;      /* blue-green */
+      --accent-2: #B8C4A9;      /* sage */
       --border-soft: #e5e7eb;
-      --max-width: 1100px;
+      --max-width: 1080px;
       --radius-lg: 20px;
     }
 
@@ -47,26 +46,28 @@
 
     .shell {
       max-width: var(--max-width);
-      margin: 24px auto 60px;
+      margin: 28px auto 60px;
       background: var(--bg-shell);
       border-radius: 26px;
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
-      padding: 0 24px 40px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+      padding: 0 28px 40px;
       position: relative;
       overflow: hidden;
     }
 
-    /* subtle colored band on left */
     .shell::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: 60px;
-      bottom: 40px;
-      width: 6px;
-      border-radius: 999px;
-      background: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
+      inset: 0;
+      background: radial-gradient(circle at -10% 0%, rgba(111,164,175,0.25), transparent 45%),
+                  radial-gradient(circle at 110% 20%, rgba(184,196,169,0.25), transparent 50%);
       opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .shell-inner {
+      position: relative;
+      z-index: 1;
     }
 
     /* Sticky header */
@@ -74,14 +75,14 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 40;
-      background: rgba(255, 255, 255, 0.96);
+      z-index: 20;
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 8px 14px;
-      margin: 0 -24px 16px;
+      padding: 18px 4px 14px;
+      margin: 0 -28px 20px;
       border-bottom: 1px solid var(--border-soft);
     }
 
@@ -118,28 +119,25 @@
 
     header .nav a:hover::after { width: 100%; }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       header {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
       }
-      .shell::before {
-        top: 96px;
-      }
     }
 
     section {
-      margin: 40px 0 56px;
-      padding: 0 8px;
+      margin: 36px 0 52px;
+      padding: 0 4px;
     }
 
     .section-label {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .section-title {
@@ -151,7 +149,7 @@
     .section-sub {
       font-size: 16px;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 0 18px;
     }
 
@@ -159,7 +157,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
       gap: 28px;
       align-items: center;
     }
@@ -174,56 +172,44 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
       padding: 16px;
+      background: rgba(255,255,255,0.92);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-      background: rgba(184, 196, 169, 0.18);
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 120px;
-      height: 120px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, var(--accent-1), transparent 60%);
-      opacity: 0.8;
+      gap: 10px;
     }
 
     .hero-image-wrap {
       border-radius: 16px;
       overflow: hidden;
-      max-width: 320px;
+      max-width: 260px;          /* smaller frame */
       margin: 0 auto;
     }
 
     .hero-caption {
       font-size: 13px;
       color: var(--muted);
+      text-align: center;
     }
 
     .hero-title {
-      font-size: clamp(34px, 5vw, 44px);
+      font-size: clamp(34px, 4.8vw, 42px);
       line-height: 1.05;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
 
     .hero-roles {
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .hero-sub {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      max-width: 520px;
     }
 
     .hero-pill-row {
@@ -241,158 +227,153 @@
       background: #f9fafb;
     }
 
-    /* Lawn mower feature */
+    /* Feature project – Lawn mower */
 
-    .feature-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: flex-start;
+    .case-feature {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
-      background: #ffffff;
-      padding: 16px;
+      background: rgba(255,255,255,0.95);
+      padding: 18px 18px 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: flex-start;
     }
 
-    @media (max-width: 900px) {
-      .feature-layout {
+    @media (max-width: 850px) {
+      .case-feature {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .feature-media {
+    .case-media-column {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      max-width: 440px;
+      gap: 10px;
+      max-width: 320px;          /* smaller frame */
     }
 
-    .feature-media img {
-      border-radius: 16px;
+    .case-media-column img {
+      border-radius: 14px;
       border: 1px solid var(--border-soft);
+      background: #000;
     }
 
-    .feature-meta {
-      background: rgba(111, 164, 175, 0.10);
+    .case-meta {
+      background: rgba(111,164,175,0.10);
       border-radius: 18px;
       border: 1px solid var(--border-soft);
-      padding: 18px 18px 20px;
+      padding: 16px 18px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .feature-tagbar {
-      width: 56px;
+    .case-tagbar {
+      width: 54px;
       height: 3px;
       border-radius: 999px;
       background: var(--accent-2);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .feature-title {
+    .case-title {
       font-size: 22px;
       margin: 0 0 6px;
     }
 
-    .feature-text {
-      font-size: 16px;
-      color: var(--muted);
-      margin: 0 0 10px;
-    }
-
-    .feature-tags {
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-top: 8px;
-    }
-
-    /* Projects grid (Solar + UX) */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    @media (max-width: 900px) {
-      .projects-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .project-card {
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      background: #ffffff;
-    }
-
-    .project-image-main {
-      background: #000;
-    }
-
-    .project-image-main img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .project-body {
-      padding: 14px 14px 16px;
-      background: rgba(184, 196, 169, 0.18);
-    }
-
-    .project-tagbar {
-      width: 44px;
-      height: 3px;
-      border-radius: 999px;
-      background: var(--accent-1);
-      margin-bottom: 10px;
-    }
-
-    .project-card.ux .project-tagbar {
-      background: var(--accent-2);
-    }
-
-    .project-title {
-      font-size: 19px;
-      margin: 0 0 6px;
-    }
-
-    .project-text {
+    .case-text {
       font-size: 15px;
       color: var(--muted);
       margin: 0 0 8px;
     }
 
-    .project-meta {
+    .case-meta-tags {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* Projects list (Solar + UX) */
+
+    .cases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .case-row {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255,255,255,0.96);
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.3fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (max-width: 820px) {
+      .case-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .case-thumb {
+      max-width: 260px;          /* smaller frame */
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #000;
+    }
+
+    .case-thumb img {
+      width: 100%;
+      height: auto;
+    }
+
+    .case-info-title {
+      font-size: 19px;
+      margin: 0 0 6px;
+    }
+
+    .case-info-text {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0 0 6px;
+      max-width: 520px;
+    }
+
+    .case-info-tags {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--muted);
     }
 
+    .case-row.ux .case-tagbar,
+    .case-row.ux .case-thumb {
+      border-color: var(--accent-1);
+    }
+
     /* CV section */
 
     #cv-block {
-      background: linear-gradient(to right, rgba(184,196,169,0.18), #ffffff);
       border-radius: var(--radius-lg);
-      padding: 22px 20px 24px;
       border: 1px solid var(--border-soft);
+      background: linear-gradient(to right, rgba(184,196,169,0.20), #ffffff);
+      padding: 20px 18px 22px;
     }
 
     .contact-box {
       border-top: 1px solid var(--border-soft);
-      padding-top: 18px;
-      margin-top: 14px;
+      padding-top: 16px;
+      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
       justify-content: space-between;
       align-items: center;
     }
@@ -422,12 +403,12 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.3fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 22px;
       align-items: center;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 850px) {
       .about-grid {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -436,26 +417,26 @@
     .about-photo-card {
       border-radius: 18px;
       border: 1px solid var(--border-soft);
-      overflow: hidden;
-      background: rgba(111, 164, 175, 0.10);
       padding: 10px;
+      background: rgba(111,164,175,0.10);
+      max-width: 280px;          /* smaller frame */
     }
 
     .about-text-card {
       border-radius: 18px;
       border: 1px solid var(--accent-2);
-      padding: 18px 18px 20px;
+      padding: 16px 18px 18px;
       background: #ffffff;
     }
 
     .about-text-card p {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       font-size: 15px;
       color: var(--muted);
     }
 
     .pill-row {
-      margin-top: 8px;
+      margin-top: 6px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -464,8 +445,9 @@
     .process-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 18px;
+      max-width: 520px;
     }
 
     .process-tile {
@@ -478,201 +460,203 @@
     .process-caption {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
   </style>
 </head>
 <body>
   <div class="shell">
+    <div class="shell-inner">
 
-    <!-- Header -->
-    <header>
-      <div class="name">Naz Khani</div>
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#cv">CV</a>
-        <a href="#about">About me</a>
-      </nav>
-    </header>
+      <!-- Header -->
+      <header>
+        <div class="name">Naz Khani</div>
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="#cv">CV</a>
+          <a href="#about">About me</a>
+        </nav>
+      </header>
 
-    <!-- Hero -->
-    <section>
-      <div class="hero">
-        <!-- Image LEFT -->
-        <div>
-          <div class="hero-card">
-            <div class="hero-image-wrap">
-              <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
-            </div>
-            <div class="hero-caption">
-              Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
-            </div>
-          </div>
-        </div>
-
-        <!-- Text RIGHT -->
-        <div>
-          <div class="section-label">Creative Technology &amp; Design</div>
-          <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
-          <div class="hero-roles">
-            Designer · Creative Technologist · PhD Applicant
-          </div>
-          <p class="hero-sub">
-            Naz works across interaction, physical computing, and visual storytelling to design
-            experiences that feel thoughtful, playful, and precise.
-          </p>
-          <div class="hero-pill-row">
-            <span class="pill">Interactive installations</span>
-            <span class="pill">UX &amp; visual design</span>
-            <span class="pill">Digital fabrication</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects: Lawn mower feature first -->
-    <section id="projects">
-      <div class="section-label">Projects</div>
-      <h2 class="section-title">Robotic Lawn Mower</h2>
-      <p class="section-sub">
-        Autonomous lawn-mowing prototype focused on mechanical configuration, safety, and form.
-      </p>
-
-      <div class="feature-layout">
-        <div class="feature-media">
-          <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
-          <img src="img/cad.jpeg" alt="Completed robotic lawn mower view">
-        </div>
-        <div class="feature-meta">
+      <!-- Hero -->
+      <section>
+        <div class="hero">
+          <!-- Image LEFT -->
           <div>
-            <div class="feature-tagbar"></div>
-            <h3 class="feature-title">Robotics, form, and function</h3>
-            <p class="feature-text">
-              Built as a working prototype, the mower combines structural design, motion planning
-              constraints, and attention to user safety and legibility.
-            </p>
+            <div class="hero-card">
+              <div class="hero-image-wrap">
+                <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
+              </div>
+              <div class="hero-caption">
+                Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
+              </div>
+            </div>
           </div>
-          <div class="feature-tags">
-            Robotics · Prototyping · Systems thinking
+
+          <!-- Text RIGHT -->
+          <div>
+            <div class="section-label">Creative Technology &amp; Design</div>
+            <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
+            <div class="hero-roles">
+              Designer · Creative Technologist · PhD Applicant
+            </div>
+            <p class="hero-sub">
+              Naz works across interaction, physical computing, and visual storytelling to design
+              experiences that feel thoughtful, playful, and precise.
+            </p>
+            <div class="hero-pill-row">
+              <span class="pill">Interactive installations</span>
+              <span class="pill">UX &amp; visual design</span>
+              <span class="pill">Digital fabrication</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Other projects: Solar + UX side by side -->
-    <section>
-      <div class="section-label">Projects</div>
-      <h2 class="section-title">Interactive installation &amp; UX research</h2>
-      <p class="section-sub">
-        A pairing of spatial installation work and research-driven UX synthesis.
-      </p>
-
-      <div class="projects-grid">
-        <!-- Solar Umbrella -->
-        <article class="project-card">
-          <div class="project-image-main">
-            <img src="img/solar.jpeg" alt="Interactive Solar Umbrella">
-          </div>
-          <div class="project-body">
-            <div class="project-tagbar"></div>
-            <h3 class="project-title">Interactive Solar Umbrella</h3>
-            <p class="project-text">
-              Responsive outdoor installation using light and embedded electronics to shape how
-              people share space in a courtyard or patio setting.
-            </p>
-            <div class="project-meta">
-              Installation · Physical computing · Light &amp; space
-            </div>
-          </div>
-        </article>
-
-        <!-- UX Research project -->
-        <article class="project-card ux">
-          <div class="project-image-main">
-            <img src="img/ux.jpeg" alt="UX research whiteboard with connections">
-          </div>
-          <div class="project-body">
-            <div class="project-tagbar"></div>
-            <h3 class="project-title">UX Research Exploration</h3>
-            <p class="project-text">
-              Synthesis of user interviews and observations, mapping behaviors and decisions
-              through affinity diagrams and whiteboard sessions to uncover patterns.
-            </p>
-            <div class="project-meta">
-              UX research · Synthesis · Insight mapping
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CV section -->
-    <section id="cv">
-      <div class="section-label">CV</div>
-      <div id="cv-block">
-        <h2 class="section-title">Curriculum Vitae</h2>
+      <!-- Projects: Lawn mower feature -->
+      <section id="projects">
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">Robotic Lawn Mower</h2>
         <p class="section-sub">
-          Full academic and professional CV with education, teaching, and additional projects.
+          Autonomous lawn-mowing prototype focused on mechanical configuration, safety, and form.
         </p>
-        <div class="contact-box">
-          <div class="contact-text">
-            The CV includes additional teaching experience, coursework, and design work not shown here.
-          </div>
-          <div>
-            <a class="btn" href="saharnazcvR.pdf">Download CV</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About me / Digital fab & process -->
-    <section id="about">
-      <div class="section-label">About me</div>
-      <h2 class="section-title">Digital fabrication &amp; making</h2>
-      <p class="section-sub">
-        Background, interests, and a glimpse into hands-on work in the lab.
-      </p>
+        <article class="case-feature">
+          <div class="case-media-column">
+            <img src="img/lawn.jpeg" alt="Robotic lawn mower prototype">
+            <img src="img/cad.jpeg" alt="Completed robotic lawn mower view">
+          </div>
+          <div class="case-meta">
+            <div>
+              <div class="case-tagbar"></div>
+              <h3 class="case-title">Robotics, form, and function</h3>
+              <p class="case-text">
+                Built as a working prototype, the mower combines structural design, motion planning
+                constraints, and attention to user safety and legibility.
+              </p>
+            </div>
+            <div class="case-meta-tags">
+              Robotics · Prototyping · Systems thinking
+            </div>
+          </div>
+        </article>
+      </section>
 
-      <div class="about-grid">
-        <div class="about-photo-card">
-          <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
+      <!-- Projects: Solar + UX -->
+      <section>
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">Interactive installation &amp; UX research</h2>
+        <p class="section-sub">
+          A pairing of spatial installation work and research-driven UX synthesis.
+        </p>
+
+        <div class="cases-list">
+          <!-- Solar Umbrella -->
+          <article class="case-row">
+            <div class="case-thumb">
+              <img src="img/solar.jpeg" alt="Interactive Solar Umbrella">
+            </div>
+            <div>
+              <div class="case-tagbar"></div>
+              <h3 class="case-info-title">Interactive Solar Umbrella</h3>
+              <p class="case-info-text">
+                Responsive outdoor installation using light and embedded electronics to shape how
+                people share space in a courtyard or patio setting.
+              </p>
+              <div class="case-info-tags">
+                Installation · Physical computing · Light &amp; space
+              </div>
+            </div>
+          </article>
+
+          <!-- UX Research project -->
+          <article class="case-row ux">
+            <div class="case-thumb">
+              <img src="img/ux.jpeg" alt="UX research whiteboard with connections">
+            </div>
+            <div>
+              <div class="case-tagbar"></div>
+              <h3 class="case-info-title">UX Research Exploration</h3>
+              <p class="case-info-text">
+                Synthesis of user interviews and observations, mapping behaviors and decisions
+                through affinity diagrams and whiteboard sessions to uncover patterns.
+              </p>
+              <div class="case-info-tags">
+                UX research · Synthesis · Insight mapping
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="about-text-card">
-          <p>
-            Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer in the MS
-            Creative Technology &amp; Design program at CU Boulder. Her work spans interactive
-            installations, UX, and physical prototyping.
+      </section>
+
+      <!-- CV -->
+      <section id="cv">
+        <div class="section-label">CV</div>
+        <div id="cv-block">
+          <h2 class="section-title">Curriculum Vitae</h2>
+          <p class="section-sub">
+            Full academic and professional CV with education, teaching, and additional projects.
           </p>
-          <p>
-            She enjoys moving between digital and physical tools: sketching and interface design,
-            coding behaviors, and using fabrication equipment to bring ideas into space.
-          </p>
-          <div class="pill-row">
-            <span class="pill">Digital fabrication lab</span>
-            <span class="pill">Interaction design</span>
-            <span class="pill">Research-through-design</span>
+          <div class="contact-box">
+            <div class="contact-text">
+              The CV includes additional teaching experience, coursework, and design work not shown here.
+            </div>
+            <div>
+              <a class="btn" href="saharnazcvR.pdf">Download CV</a>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="process-strip">
-        <div class="process-tile">
-          <img src="img/mach1.jpeg" alt="Fabrication process 1">
-        </div>
-        <div class="process-tile">
-          <img src="img/mach2.jpeg" alt="Fabrication process 2">
-        </div>
-        <div class="process-tile">
-          <img src="img/mach3.jpeg" alt="Fabrication process 3">
-        </div>
-      </div>
+      <!-- About / Digital fab & process -->
+      <section id="about">
+        <div class="section-label">About me</div>
+        <h2 class="section-title">Digital fabrication &amp; making</h2>
+        <p class="section-sub">
+          Background, interests, and a glimpse into hands-on work in the lab.
+        </p>
 
-      <div class="process-caption">
-        Selected moments from the digital fabrication lab.
-      </div>
-    </section>
+        <div class="about-grid">
+          <div class="about-photo-card">
+            <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
+          </div>
+          <div class="about-text-card">
+            <p>
+              Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer in the MS
+              Creative Technology &amp; Design program at CU Boulder. Her work spans interactive
+              installations, UX, and physical prototyping.
+            </p>
+            <p>
+              She enjoys moving between digital and physical tools: sketching and interface design,
+              coding behaviors, and using fabrication equipment to bring ideas into space.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Digital fabrication lab</span>
+              <span class="pill">Interaction design</span>
+              <span class="pill">Research-through-design</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="process-strip">
+          <div class="process-tile">
+            <img src="img/mach1.jpeg" alt="Fabrication process 1">
+          </div>
+          <div class="process-tile">
+            <img src="img/mach2.jpeg" alt="Fabrication process 2">
+          </div>
+          <div class="process-tile">
+            <img src="img/mach3.jpeg" alt="Fabrication process 3">
+          </div>
+        </div>
+
+        <div class="process-caption">
+          Selected moments from the digital fabrication lab.
+        </div>
+      </section>
+
+    </div>
   </div>
 </body>
 </html>
