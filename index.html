@@ -5,21 +5,31 @@
   <title>Naz Khani | Creative Technology & Design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root {
-      --bg: #f7f4f1;
-      --bg-alt: #fcfaf8;
-      --text: #1f2933;
-      --muted: #6b7280;
-      --accent: #6e8c74; /* soft sage */
-      --accent-soft: rgba(110, 140, 116, 0.1);
-      --card-bg: #ffffff;
-      --border-soft: #e5e7eb;
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --shadow-subtle: 0 10px 24px rgba(15, 23, 42, 0.05);
-      --max-width: 1120px;
-    }
+      :root {
+  --bg: #ffffff;         /* base white */
+  --bg-alt: #F4E9D7;     /* very light sand as subtle panel background */
+  --text: #111827;       /* dark slate text */
+  --muted: #6b7280;      /* slate gray for secondary text */
+
+  --accent: #D97D55;     /* warm terracotta: primary accent */
+  --accent-2: #6FA4AF;   /* cool teal: secondary accent */
+
+  --accent-soft: rgba(217, 125, 85, 0.08); /* subtle terracotta tint */
+  --accent-soft-2: rgba(111, 164, 175, 0.08); /* subtle teal tint */
+
+  --panel-bg: #B8C4A9;   /* green-gray for very subtle blocks */
+
+  --card-bg: #ffffff;
+  --border-soft: #e5e7eb;
+
+  --radius-xl: 22px;
+  --radius-lg: 14px;
+
+  --shadow-soft: 0 12px 32px rgba(0,0,0,0.06);
+  --shadow-subtle: 0 8px 20px rgba(0,0,0,0.04);
+
+  --max-width: 1120px;
+}
 
     * {
       box-sizing: border-box;
@@ -234,28 +244,28 @@
                   background 0.16s ease-out, border-color 0.16s ease-out;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #6e8c74, #93a98f);
-      color: #fff;
-      box-shadow: var(--shadow-soft);
-    }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.22);
-    }
+
+    .btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  background: #c86f4a;
+  transform: translateY(-1px);
+}
+
+
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.6);
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .btn-secondary:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-    }
+  background: var(--accent-soft-2);
+  border: 1px solid rgba(111,164,175,0.4);
+  color: var(--text);
+}
+.btn-secondary:hover {
+  background: var(--accent-soft);
+}
 
     .hero-note {
       font-size: 0.8rem;
@@ -287,22 +297,11 @@
     }
 
     .shape-1 {
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle at 20% 10%, #ffe4d2, #f49c7e);
-      top: -40px;
-      right: -40px;
-      animation-delay: -3s;
-    }
-
-    .shape-2 {
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle at 80% 70%, #d2e2d4, #6e8c74);
-      bottom: -60px;
-      left: -40px;
-      animation-delay: -6s;
-    }
+  background: radial-gradient(circle at 20% 10%, #F4E9D7, #D97D55);
+}
+.shape-2 {
+  background: radial-gradient(circle at 80% 70%, #B8C4A9, #6FA4AF);
+}
 
     .hero-photo-placeholder {
       position: relative;
@@ -1024,3 +1023,4 @@
 </script>
 </body>
 </html>
+
