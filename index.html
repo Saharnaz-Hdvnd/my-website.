@@ -4,7 +4,7 @@
 
   <link rel="canonical" href="https://naz-khani.com/">
 
-  <meta name="description" content="Portfolio website of Saharnaz Khani — showcasing design projects, creative technology, UX work, and ceramic art.">
+  <meta name="description" content="Portfolio website of Saharnaz (Naz) Khani — showcasing design projects, creative technology, UX work, and ceramic art.">
 
   <meta property="og:title" content="Saharnaz Khani Portfolio">
   <meta property="og:description" content="Explore design, projects, and creative work by Saharnaz Khani.">
@@ -14,7 +14,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta charset="UTF-8">
-  <title>Naz Khani – Creative Technology & Design</title>
+  <title>Naz Khani – Designer & Creative Technologist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font -->
@@ -26,6 +26,8 @@
       --bg-shell: #ffffff;
       --bg-art: #eef3ef;        /* light sage block */
       --bg-accent: #e7eff0;     /* soft teal block */
+      --bg-cv: #e9f1f3;         /* cv panel */
+      --bg-about: #ffffff;      /* about panel */
       --text: #0b0f19;
       --muted: #4b5563;
       --strong: #0a3240;        /* deep teal */
@@ -55,7 +57,6 @@
       color: inherit;
       text-decoration: none;
     }
-
 
     /* TOP BAR --------------------------------------------------------- */
 
@@ -117,17 +118,6 @@
 
     .nav a:hover::after { width: 100%; }
 
-    .links {
-      display: flex;
-      gap: 14px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
-
-    .links a:hover { color: var(--strong); }
-
     @media (max-width: 820px) {
       .topbar-inner {
         flex-direction: column;
@@ -139,7 +129,6 @@
         align-items: flex-start;
       }
     }
-
 
     /* GENERAL LAYOUT -------------------------------------------------- */
 
@@ -174,7 +163,6 @@
       margin: 14px 0 26px;
     }
 
-
     /* HERO ------------------------------------------------------------ */
 
     .hero {
@@ -182,9 +170,10 @@
       border-radius: var(--radius-lg);
       padding: 44px;
       display: grid;
-      grid-template-columns: 1fr 0.9fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 40px;
       align-items: center;
+      box-shadow: 0 18px 34px rgba(0,0,0,0.10);
     }
 
     @media (max-width: 900px) {
@@ -214,15 +203,46 @@
     .portrait-card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.16);
       background: #fff;
       overflow: hidden;
-      max-width: 300px;
+      max-width: 340px; /* slightly bigger */
       justify-self: end;
     }
 
+    .portrait-card img {
+      width: 100%;
+      display: block;
+    }
 
-    /* PROJECT GRID ---------------------------------------------------- */
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pill {
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      font-size: 13px;
+      color: var(--strong);
+    }
+
+    /* PROJECTS -------------------------------------------------------- */
+
+    .projects-block {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 700px) {
+      .projects-block { padding: 24px; }
+    }
 
     .project-grid {
       display: grid;
@@ -240,6 +260,7 @@
       aspect-ratio: 4/3;
       box-shadow: 0 14px 28px rgba(0,0,0,0.12);
       overflow: hidden;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out;
     }
 
     .project-thumb img {
@@ -259,10 +280,16 @@
       align-items: center;
       text-align: center;
       opacity: 0;
-      transition: opacity 0.2s ease-out;
+      transition: opacity 0.16s ease-out;
       font-size: 15px;
       font-weight: 500;
       color: var(--strong);
+      padding: 10px;
+    }
+
+    .project-thumb:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 38px rgba(0,0,0,0.18);
     }
 
     .project-thumb:hover .project-hover { opacity: 1; }
@@ -272,14 +299,33 @@
       color: var(--muted);
     }
 
+    /* ART & CV BLOCKS ------------------------------------------------- */
 
-    /* ART BLOCK ------------------------------------------------------ */
-
-    .art-block {
+    .art-section {
       background: var(--bg-art);
       border-radius: var(--radius-lg);
-      padding: 28px;
+      padding: 32px;
       border: 1px solid var(--border-soft);
+    }
+
+    .cv-section {
+      background: var(--bg-cv);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .download-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .download-text {
+      font-size: 15px;
+      color: var(--muted);
     }
 
     .btn {
@@ -298,14 +344,21 @@
       color: #fff;
     }
 
-
     /* ABOUT ---------------------------------------------------------- */
+
+    .about-section {
+      background: var(--bg-about);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.05);
+    }
 
     .about-grid {
       display: grid;
       grid-template-columns: 0.9fr 1.2fr;
-      gap: 40px;
-      align-items: center;
+      gap: 32px;
+      align-items: flex-start;
     }
 
     @media (max-width: 900px) {
@@ -318,11 +371,23 @@
       border: 1px solid var(--border-soft);
       background: #fff;
       box-shadow: 0 16px 32px rgba(0,0,0,0.10);
+      max-width: 280px; /* a bit smaller than before */
+    }
+
+    .about-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    .about-photo-caption {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 8px 10px 10px;
     }
 
     .about-text p {
-      margin: 0 0 12px;
-      font-size: 16px;
+      margin: 0 0 10px;
+      font-size: 15px;
       color: var(--muted);
     }
 
@@ -333,7 +398,7 @@
       flex-wrap: wrap;
     }
 
-    .pill {
+    .about-pill {
       background: var(--bg-accent);
       padding: 6px 12px;
       border-radius: 999px;
@@ -342,6 +407,44 @@
       color: var(--strong);
     }
 
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+      max-width: 520px;
+    }
+
+    .process-tile {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+    }
+
+    .process-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .contact-row {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact-row a {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      margin-right: 16px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-row a:hover {
+      border-color: var(--muted);
+    }
 
     /* FOOTER --------------------------------------------------------- */
 
@@ -362,15 +465,6 @@
       gap: 12px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .footer-links a:hover { color: var(--strong); }
   </style>
 </head>
 
@@ -387,11 +481,6 @@
         <a href="#cv">CV</a>
         <a href="#about">About</a>
       </nav>
-      <div class="links">
-        <a href="mailto:saharnaz.hadavandkhani@colorado.edu">Email</a>
-        <a href="https://www.colorado.edu/atlas/saharnaz-hadavandkhani" target="_blank">CU Page</a>
-        <a href="https://www.linkedin.com/in/naz-hadavandkhani-b99ba0164" target="_blank">LinkedIn</a>
-      </div>
     </div>
   </div>
 </header>
@@ -401,15 +490,15 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <h1 class="hero-title">Creative technology, interaction, and thoughtful visual design.</h1>
+      <h1 class="hero-title">Designer &amp; Creative Technologist focusing on interaction, space, and material.</h1>
       <p class="hero-text">
-        Naz designs interactive systems, UX experiences, and physical-digital works shaped by space, light, and material exploration.
+        Naz designs interactive systems, UX experiences, and physical–digital works shaped by space, light, and material exploration.
       </p>
-      <div class="hero-role">MS Creative Technology &amp; Design · ATLAS Institute</div>
-      <div class="pill-row" style="margin-top: 18px;">
+      <div class="hero-role">MS Creative Technology &amp; Design · University of Colorado Boulder</div>
+      <div class="hero-pills">
         <span class="pill">Interactive Installations</span>
         <span class="pill">Digital Fabrication</span>
-        <span class="pill">UX Research</span>
+        <span class="pill">UX Research &amp; Design</span>
       </div>
     </div>
 
@@ -418,136 +507,172 @@
     </div>
   </section>
 
-
   <!-- PROJECTS -->
   <section id="projects" class="section-block">
-    <h2 class="section-title">Selected Work</h2>
-    <div class="title-line"></div>
-    <p class="section-sub">Click posters to open each project.</p>
+    <div class="projects-block">
+      <h2 class="section-title">Selected Work</h2>
+      <div class="title-line"></div>
+      <p class="section-sub">Click posters to open each project.</p>
 
-    <div class="project-grid">
+      <div class="project-grid">
 
-      <!-- RayBrella -->
-      <article class="project-card">
-        <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">
-          <div class="project-thumb">
-            <img src="img/RayBrella.jpg" alt="RayBrella">
-            <div class="project-hover">RayBrella – Interactive Solar Umbrella</div>
-          </div>
-        </a>
-        <p class="project-caption">Solar-powered interactive umbrella rethinking shared shade and light.</p>
-      </article>
+        <!-- RayBrella -->
+        <article class="project-card">
+          <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">
+            <div class="project-thumb">
+              <img src="img/RayBrella.jpg" alt="RayBrella">
+              <div class="project-hover">RayBrella – Interactive Solar Umbrella</div>
+            </div>
+          </a>
+          <p class="project-caption">Solar-powered interactive umbrella rethinking shared shade and light.</p>
+        </article>
 
-      <!-- Lawn Mower -->
-      <article class="project-card">
-        <a href="Robotic Lawn Mower.pdf" target="_blank">
-          <div class="project-thumb">
-            <img src="img/cad.jpeg" alt="Lawn Mower">
-            <div class="project-hover">Robotic Lawn Mower</div>
-          </div>
-        </a>
-        <p class="project-caption">Tracked autonomous mower prototype built for safety and durability.</p>
-      </article>
+        <!-- Lawn Mower -->
+        <article class="project-card">
+          <a href="Robotic Lawn Mower.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/cad.jpeg" alt="Lawn Mower">
+              <div class="project-hover">Robotic Lawn Mower</div>
+            </div>
+          </a>
+          <p class="project-caption">Tracked autonomous mower prototype designed for safety and durability.</p>
+        </article>
 
-      <!-- STEMblazers -->
-      <article class="project-card">
-        <a href="stemblazer.pdf" target="_blank">
-          <div class="project-thumb">
-            <img src="img/stemblazeruxr.jpg" alt="STEMblazers">
-            <div class="project-hover">STEMblazers UX Research</div>
-          </div>
-        </a>
-        <p class="project-caption">User research and interface recommendations for STEMblazers.</p>
-      </article>
+        <!-- STEMblazers -->
+        <article class="project-card">
+          <a href="stemblazer.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/stemblazeruxr.jpg" alt="STEMblazers">
+              <div class="project-hover">STEMblazers UX Research</div>
+            </div>
+          </a>
+          <p class="project-caption">User research and interface recommendations for STEMblazers.</p>
+        </article>
 
-      <!-- Spotify -->
-      <article class="project-card">
-        <a href="SpotifyUX.pdf" target="_blank">
-          <div class="project-thumb">
-            <img src="img/spotify.jpg" alt="Spotify UX">
-            <div class="project-hover">Spotify UX Research</div>
-          </div>
-        </a>
-        <p class="project-caption">Analysis of listening flows, personalization, and social UX.</p>
-      </article>
+        <!-- Spotify -->
+        <article class="project-card">
+          <a href="SpotifyUX.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/spotify.jpg" alt="Spotify UX">
+              <div class="project-hover">Spotify UX Research</div>
+            </div>
+          </a>
+          <p class="project-caption">Analysis of listening flows, personalization, and social listening UX.</p>
+        </article>
 
-      <!-- Memento -->
-      <article class="project-card">
-        <a href="Memento UXD_ UXR.pdf" target="_blank">
-          <div class="project-thumb">
-            <img src="img/memento.jpg" alt="Memento">
-            <div class="project-hover">Memento – Leisure Planning App</div>
-          </div>
-        </a>
-        <p class="project-caption">UX research + mobile app design exploring planning and memory.</p>
-      </article>
+        <!-- Memento -->
+        <article class="project-card">
+          <a href="Memento UXD_ UXR.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/memento.jpg" alt="Memento">
+              <div class="project-hover">Memento – Leisure Planning App</div>
+            </div>
+          </a>
+          <p class="project-caption">UX research and mobile app design for planning leisure and shared experiences.</p>
+        </article>
 
-      <!-- Game -->
-      <article class="project-card">
-        <a href="Game Design.pdf" target="_blank">
-          <div class="project-thumb">
-            <img src="img/game.jpg" alt="Haptic Game">
-            <div class="project-hover">Haptic Memory Game</div>
-          </div>
-        </a>
-        <p class="project-caption">Multisensory game exploring tactile learning for children.</p>
-      </article>
+        <!-- Game -->
+        <article class="project-card">
+          <a href="Game Design.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/game.jpg" alt="Haptic Game">
+              <div class="project-hover">Haptic Memory Game</div>
+            </div>
+          </a>
+          <p class="project-caption">Multisensory memory game exploring tactile learning for children.</p>
+        </article>
 
+      </div>
     </div>
   </section>
-
 
   <!-- ART -->
   <section id="art" class="section-block">
-    <h2 class="section-title">Art Portfolio</h2>
-    <div class="title-line"></div>
-    <p class="section-sub">Ceramic and glaze work.</p>
+    <div class="art-section">
+      <h2 class="section-title">Art Portfolio</h2>
+      <div class="title-line"></div>
 
-    <div class="art-block">
-      <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
+      <div class="download-block">
+        <div class="download-text">
+          Ceramic and glaze artworks.
+        </div>
+        <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
+      </div>
     </div>
   </section>
-
 
   <!-- CV -->
   <section id="cv" class="section-block">
-    <h2 class="section-title">Curriculum Vitae</h2>
-    <div class="title-line"></div>
-    <p class="section-sub">Academic and design background.</p>
+    <div class="cv-section">
+      <h2 class="section-title">Curriculum Vitae</h2>
+      <div class="title-line"></div>
 
-    <div class="art-block">
-      <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
+      <div class="download-block">
+        <div class="download-text">
+          Academic and design background.
+        </div>
+        <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
+      </div>
     </div>
   </section>
 
-
   <!-- ABOUT -->
   <section id="about" class="section-block">
-    <h2 class="section-title">About Me</h2>
-    <div class="title-line"></div>
-    <p class="section-sub">Studio practice in the ATLAS digital fabrication lab.</p>
+    <div class="about-section">
+      <h2 class="section-title">About Me</h2>
+      <div class="title-line"></div>
+      <p class="section-sub">Designer &amp; Creative Technologist working in the CU digital fabrication lab.</p>
 
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="img/nazatwork.jpeg" alt="Naz at work">
+      <div class="about-grid">
+        <div>
+          <div class="about-photo">
+            <img src="img/nazatwork.jpeg" alt="Naz at work in the lab">
+            <div class="about-photo-caption">
+              Naz assisting students in the CU digital fabrication lab.
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p>
+            Naz Khani is a Designer and Creative Technologist with a multidisciplinary background. She holds
+            a BSc in Mechanical Engineering (Food Machinery) from the University of Tehran, an MA in Art
+            Research from the Art University of Tehran, and an MS in Creative Technology &amp; Design from the
+            University of Colorado Boulder.
+          </p>
+          <p>
+            She currently works as a lab assistant in the CU digital fabrication lab, helping students
+            prototype with laser cutters, 3D printers, and CNC machines while developing her own
+            interactive installations and design work.
+          </p>
+          <p>
+            Naz is fascinated by design aesthetics and the lived experience of products. She aims to combine
+            her engineering, art, and technology training to understand creativity in design and to build
+            work that is both conceptually rigorous and experientially compelling.
+          </p>
+
+          <div class="pill-row">
+            <span class="about-pill">Digital Fabrication</span>
+            <span class="about-pill">Interaction &amp; Experience Design</span>
+            <span class="about-pill">Research-through-Design</span>
+          </div>
+
+          <div class="contact-row">
+            <a href="mailto:saharnaz.hadavandkhani@colorado.edu">Email</a>
+            <a href="https://www.colorado.edu/atlas/saharnaz-hadavandkhani" target="_blank">CU Page</a>
+            <a href="https://www.linkedin.com/in/naz-hadavandkhani-b99ba0164" target="_blank">LinkedIn</a>
+          </div>
+        </div>
       </div>
 
-      <div class="about-text">
-        <p>
-          Naz Khani is a creative technologist and designer in the MS Creative Technology & Design
-          program at CU Boulder.
-        </p>
-        <p>
-          She is a lab assistant in the digital fabrication lab, helping students prototype with
-          tools such as laser cutters, 3D printers, and CNC machines while developing her own
-          interactive installations and design work.
-        </p>
+      <div class="process-strip">
+        <div class="process-tile"><img src="img/mach1.jpeg" alt="Digital fabrication process 1"></div>
+        <div class="process-tile"><img src="img/mach2.jpeg" alt="Digital fabrication process 2"></div>
+        <div class="process-tile"><img src="img/mach3.jpeg" alt="Digital fabrication process 3"></div>
+      </div>
 
-        <div class="pill-row">
-          <span class="pill">Digital Fabrication</span>
-          <span class="pill">Interaction Design</span>
-          <span class="pill">UX Research</span>
-        </div>
+      <div class="process-caption">
+        Selected machines and processes from the CU digital fabrication lab.
       </div>
     </div>
   </section>
@@ -556,12 +681,7 @@
 
 <footer>
   <div class="footer-inner">
-    <div>© 2025 Naz Khani · Designer & Creative Technologist</div>
-    <div class="footer-links">
-      <a href="mailto:saharnaz.hadavandkhani@colorado.edu">Email</a>
-      <a href="https://www.colorado.edu/atlas/saharnaz-hadavandkhani" target="_blank">CU Page</a>
-      <a href="https://www.linkedin.com/in/naz-hadavandkhani-b99ba0164" target="_blank">LinkedIn</a>
-    </div>
+    <div>© 2025 Naz Khani · Designer &amp; Creative Technologist</div>
   </div>
 </footer>
 
