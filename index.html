@@ -24,7 +24,7 @@
     :root {
       --bg-page: #ecf2f3;        /* pale blue-green wash */
       --bg-shell: #ffffff;
-      --bg-art: #eef3ef;        /* light sage block */
+      --bg-art: #dde6de;        /* stronger sage block */
       --bg-accent: #e7eff0;     /* soft teal block */
       --bg-cv: #e9f1f3;         /* cv panel */
       --bg-about: #ffffff;      /* about panel */
@@ -237,67 +237,6 @@
       color: var(--strong);
     }
 
-    /* RAYBRELLA PREVIEW ----------------------------------------------- */
-
-    .raybrella-preview-block {
-      margin-top: 32px;
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 20px 22px 24px;
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.06);
-    }
-
-    .raybrella-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    .raybrella-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--strong);
-    }
-
-    .raybrella-sub {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .raybrella-frame {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border-soft);
-      background: #000;
-      height: 320px;
-    }
-
-    .raybrella-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .raybrella-link {
-      font-size: 12px;
-      margin-top: 8px;
-      color: var(--muted);
-    }
-
-    .raybrella-link a {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 11px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .raybrella-link a:hover {
-      border-color: var(--muted);
-    }
-
     /* PROJECTS -------------------------------------------------------- */
 
     .projects-block {
@@ -366,6 +305,68 @@
       color: var(--muted);
     }
 
+    /* RAYBRELLA PREVIEW (AFTER PROJECTS) ------------------------------ */
+
+    .raybrella-preview-block {
+      margin-top: 28px;
+      background: #f4f7f8;
+      border-radius: var(--radius-lg);
+      padding: 22px 24px 24px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+    }
+
+    .raybrella-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .raybrella-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+
+    .raybrella-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .raybrella-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #000;
+      height: 260px;
+    }
+
+    .raybrella-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .raybrella-link {
+      font-size: 12px;
+      margin-top: 8px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .raybrella-link a {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .raybrella-link a:hover {
+      border-color: var(--muted);
+    }
+
     /* ART & CV BLOCKS ------------------------------------------------- */
 
     .art-section {
@@ -415,19 +416,21 @@
 
     .ceramic-slideshow {
       width: 100%;
-      max-width: 520px;
+      max-width: 360px;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-soft);
       background: #ffffff;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.10);
-      margin-bottom: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+      margin-bottom: 14px;
     }
 
     .ceramic-slideshow img {
       width: 100%;
       height: auto;
       display: block;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
     /* ABOUT ---------------------------------------------------------- */
@@ -617,7 +620,7 @@
     <div>
       <h1 class="hero-title">Designing interactive objects, interfaces, and material-driven experiences.</h1>
       <p class="hero-text">
-        Naz works across physical computing, digital fabrication, UX, and ceramic practice to explore how people interact with objects, interfaces, and environments.
+        Naz works across physical computing, digital fabrication, UX, and aesthetic practice to explore how people interact with objects, interfaces, and environments.
       </p>
       <div class="hero-role">Designer &amp; Creative Technologist · University of Colorado Boulder</div>
       <div class="hero-pills">
@@ -631,22 +634,8 @@
     <div class="portrait-card">
       <img src="img/naz.jpeg" alt="Naz portrait">
       <div class="hero-photo-caption">
-        Fatemeh (Saharnaz) Hadavandkhani · goes by Naz Khani.
+        Fatemeh (Saharnaz) Hadavandkhani · goes by Naz Khani. Designer, Creative Technologist. MS Cretive Technology and Design at CU Boulder
       </div>
-    </div>
-  </section>
-
-  <!-- RAYBRELLA LIVE PREVIEW -->
-  <section class="raybrella-preview-block">
-    <div class="raybrella-header">
-      <div class="raybrella-title">RayBrella Live Preview</div>
-      <div class="raybrella-sub">Interactive solar umbrella – selected screens and interactions from the live site.</div>
-    </div>
-    <div class="raybrella-frame">
-      <iframe src="https://buffblue2025.github.io/RayBrella/"></iframe>
-    </div>
-    <div class="raybrella-link">
-      <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">OPEN RAYBRELLA WEBSITE</a>
     </div>
   </section>
 
@@ -726,6 +715,21 @@
         </article>
 
       </div>
+
+      <!-- RAYBRELLA LIVE PREVIEW (MOVED AFTER PROJECT GRID) -->
+      <div class="raybrella-preview-block">
+        <div class="raybrella-header">
+          <div class="raybrella-title">RayBrella Live Preview</div>
+          <div class="raybrella-sub">Interactive solar umbrella – selected screens from the live site.</div>
+        </div>
+        <div class="raybrella-frame">
+          <iframe src="https://buffblue2025.github.io/RayBrella/"></iframe>
+        </div>
+        <div class="raybrella-link">
+          <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">OPEN RAYBRELLA WEBSITE</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -789,8 +793,8 @@
             University of Colorado Boulder.
           </p>
           <p>
-            She currently works as a lab assistant in the CU digital fabrication lab, helping students
-            prototype with laser cutters, 3D printers, and CNC machines while developing her own
+            She currently works as a lab assistant in the digital fabrication lab at CU Boulder, helping students
+            prototype with laser cutters, 3D printers, and fabrication machines while developing her own
             interactive installations and design work.
           </p>
           <p>
@@ -852,16 +856,21 @@
   ];
 
   const ceramicImgEl = document.getElementById("ceramic-slide");
+  let ceramicIndex = 0;
 
-  function showRandomCeramic() {
+  function advanceCeramic() {
     if (!ceramicImages.length || !ceramicImgEl) return;
-    const index = Math.floor(Math.random() * ceramicImages.length);
-    ceramicImgEl.src = ceramicImages[index];
+    ceramicImgEl.style.opacity = 0;
+    setTimeout(() => {
+      ceramicIndex = (ceramicIndex + 1) % ceramicImages.length;
+      ceramicImgEl.src = ceramicImages[ceramicIndex];
+      ceramicImgEl.style.opacity = 1;
+    }, 200); // small fade-out before change
   }
 
-  // Start immediately and then change every 2 seconds
-  showRandomCeramic();
-  setInterval(showRandomCeramic, 2000);
+  // start from first image and then change every second
+  ceramicImgEl.src = ceramicImages[0];
+  setInterval(advanceCeramic, 1000);
 </script>
 
 </body>
