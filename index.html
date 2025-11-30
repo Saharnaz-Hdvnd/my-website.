@@ -181,16 +181,16 @@
     }
 
     .hero-title {
-      font-size: clamp(36px, 5vw, 50px);
+      font-size: clamp(32px, 4.6vw, 44px);
       margin: 0 0 12px;
       color: var(--strong);
     }
 
     .hero-text {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
       max-width: 520px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-role {
@@ -206,7 +206,7 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.16);
       background: #fff;
       overflow: hidden;
-      max-width: 340px; /* slightly bigger */
+      max-width: 340px;
       justify-self: end;
     }
 
@@ -235,6 +235,67 @@
       border: 1px solid var(--border-soft);
       font-size: 13px;
       color: var(--strong);
+    }
+
+    /* RAYBRELLA PREVIEW ----------------------------------------------- */
+
+    .raybrella-preview-block {
+      margin-top: 32px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 20px 22px 24px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+    }
+
+    .raybrella-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .raybrella-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+
+    .raybrella-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .raybrella-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #000;
+      height: 320px;
+    }
+
+    .raybrella-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .raybrella-link {
+      font-size: 12px;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .raybrella-link a {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .raybrella-link a:hover {
+      border-color: var(--muted);
     }
 
     /* PROJECTS -------------------------------------------------------- */
@@ -350,6 +411,25 @@
       color: #fff;
     }
 
+    /* CERAMIC SLIDESHOW ----------------------------------------------- */
+
+    .ceramic-slideshow {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.10);
+      margin-bottom: 18px;
+    }
+
+    .ceramic-slideshow img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ABOUT ---------------------------------------------------------- */
 
     .about-section {
@@ -377,7 +457,7 @@
       border: 1px solid var(--border-soft);
       background: #fff;
       box-shadow: 0 16px 32px rgba(0,0,0,0.10);
-      max-width: 280px; /* a bit smaller */
+      max-width: 280px;
     }
 
     .about-photo img {
@@ -448,19 +528,30 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: 11px;
-      margin-right: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-accent);
       color: var(--strong);
     }
 
-    .contact-row a {
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .contact-link {
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: 11px;
-      margin-right: 10px;
-      border-bottom: 1px solid transparent;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
     }
 
-    .contact-row a:hover {
+    .contact-link:hover {
       border-color: var(--muted);
     }
 
@@ -524,23 +615,38 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <h1 class="hero-title">Designer &amp; Creative Technologist focusing on interaction, space, and material.</h1>
+      <h1 class="hero-title">Designing interactive objects, interfaces, and material-driven experiences.</h1>
       <p class="hero-text">
-        Naz designs interactive systems, UX experiences, and physical–digital works shaped by space, light, and material exploration.
+        Naz works across physical computing, digital fabrication, UX, and ceramic practice to explore how people interact with objects, interfaces, and environments.
       </p>
-      <div class="hero-role">MS Creative Technology &amp; Design · University of Colorado Boulder</div>
+      <div class="hero-role">Designer &amp; Creative Technologist · University of Colorado Boulder</div>
       <div class="hero-pills">
         <span class="pill">Interactive Installations</span>
         <span class="pill">Digital Fabrication</span>
         <span class="pill">UX Research &amp; Design</span>
+        <span class="pill">Ceramic &amp; Material Practice</span>
       </div>
     </div>
 
     <div class="portrait-card">
       <img src="img/naz.jpeg" alt="Naz portrait">
       <div class="hero-photo-caption">
-        Naz Khani (Saharnaz Hadavandkhani) – Designer &amp; Creative Technologist.
+        Fatemeh (Saharnaz) Hadavandkhani · goes by Naz Khani.
       </div>
+    </div>
+  </section>
+
+  <!-- RAYBRELLA LIVE PREVIEW -->
+  <section class="raybrella-preview-block">
+    <div class="raybrella-header">
+      <div class="raybrella-title">RayBrella Live Preview</div>
+      <div class="raybrella-sub">Interactive solar umbrella – selected screens and interactions from the live site.</div>
+    </div>
+    <div class="raybrella-frame">
+      <iframe src="https://buffblue2025.github.io/RayBrella/"></iframe>
+    </div>
+    <div class="raybrella-link">
+      <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">OPEN RAYBRELLA WEBSITE</a>
     </div>
   </section>
 
@@ -629,6 +735,11 @@
       <h2 class="section-title">Art Portfolio</h2>
       <div class="title-line"></div>
 
+      <!-- CERAMIC SLIDESHOW -->
+      <div class="ceramic-slideshow">
+        <img id="ceramic-slide" src="img/ceramic1.jpg" alt="Ceramic artwork by Naz">
+      </div>
+
       <div class="download-block">
         <div class="download-text">
           Ceramic and glaze artworks.
@@ -672,7 +783,7 @@
 
         <div class="about-text">
           <p>
-            Naz Khani is a Designer and Creative Technologist with a multidisciplinary background. She holds
+            Naz Khani (Fatemeh / Saharnaz Hadavandkhani) is a Designer and Creative Technologist with a multidisciplinary background. She holds
             a BSc in Mechanical Engineering (Food Machinery) from the University of Tehran, an MA in Art
             Research from the Art University of Tehran, and an MS in Creative Technology &amp; Design from the
             University of Colorado Boulder.
@@ -695,10 +806,12 @@
           </div>
 
           <div class="contact-row">
-            <span class="contact-label">Contact</span>
-            <a href="mailto:saharnaz.hadavandkhani@colorado.edu">Email</a>
-            <a href="https://www.colorado.edu/atlas/saharnaz-hadavandkhani" target="_blank">CU Page</a>
-            <a href="https://www.linkedin.com/in/naz-hadavandkhani-b99ba0164" target="_blank">LinkedIn</a>
+            <div class="contact-label">Contact</div>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:saharnaz.hadavandkhani@colorado.edu">Email</a>
+              <a class="contact-link" href="https://www.colorado.edu/atlas/saharnaz-hadavandkhani" target="_blank">CU Page</a>
+              <a class="contact-link" href="https://www.linkedin.com/in/naz-hadavandkhani-b99ba0164" target="_blank">LinkedIn</a>
+            </div>
           </div>
         </div>
       </div>
@@ -727,6 +840,29 @@
     </div>
   </div>
 </footer>
+
+<!-- CERAMIC SLIDESHOW SCRIPT -->
+<script>
+  // Change these filenames to match your actual ceramic images in /img
+  const ceramicImages = [
+    "img/ceramic1.jpg",
+    "img/ceramic2.jpg",
+    "img/ceramic3.jpg",
+    "img/ceramic4.jpg"
+  ];
+
+  const ceramicImgEl = document.getElementById("ceramic-slide");
+
+  function showRandomCeramic() {
+    if (!ceramicImages.length || !ceramicImgEl) return;
+    const index = Math.floor(Math.random() * ceramicImages.length);
+    ceramicImgEl.src = ceramicImages[index];
+  }
+
+  // Start immediately and then change every 2 seconds
+  showRandomCeramic();
+  setInterval(showRandomCeramic, 2000);
+</script>
 
 </body>
 </html>
