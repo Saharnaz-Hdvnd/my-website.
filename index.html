@@ -28,8 +28,8 @@
       --bg-shell: #ffffff;
       --text: #0b0f19;
       --muted: #4b5563;
-      --accent-1: #6FA4AF;     
-      --accent-2: #B8C4A9;     
+      --accent-1: #6FA4AF;
+      --accent-2: #B8C4A9;
       --border-soft: #e5e7eb;
       --max-width: 1080px;
       --radius-lg: 20px;
@@ -80,7 +80,7 @@
 
     .topbar .nav {
       display: flex;
-      gap: 28px;
+      gap: 24px;
       font-size: 15px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -138,7 +138,7 @@
     }
 
     .section-title {
-      font-size: 26px;
+      font-size: 32px;          /* bigger section titles */
       font-weight: 600;
       margin: 0 0 10px;
     }
@@ -220,7 +220,15 @@
       margin-top: 4px;
     }
 
-    /* PROJECTS */
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 6px 12px;
+      font-size: 12px;
+      background: #f9fafb;
+    }
+
+    /* PROJECT GRID */
 
     .project-grid {
       display: grid;
@@ -240,14 +248,14 @@
       overflow: hidden;
       border: 1px solid var(--border-soft);
       background: #fff;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 4 / 3;   /* wide posters, consistent size */
       width: 100%;
     }
 
     .project-thumb img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: contain;   /* no cropping, keep text visible */
       background-color: #ffffff;
       padding: 6px;
       display: block;
@@ -393,6 +401,7 @@
     <div class="name">Naz Khani</div>
     <nav class="nav">
       <a href="#projects">Projects</a>
+      <a href="#art">Art</a>
       <a href="#cv">CV</a>
       <a href="#about">About me</a>
     </nav>
@@ -409,13 +418,13 @@
               <img src="img/naz.jpeg" alt="Naz portrait">
             </div>
             <div class="hero-caption">
-              Naz Khani (Fatemeh Hadavandkhani) • MS Creative Technology & Design • CU Boulder
+              Naz Khani (Fatemeh Hadavandkhani) • MS Creative Technology &amp; Design • CU Boulder
             </div>
           </div>
         </div>
 
         <div>
-          <div class="section-label">Creative Technology & Design</div>
+          <div class="section-label">Creative Technology &amp; Design</div>
           <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
           <div class="hero-roles">Designer · Creative Technologist · PhD Applicant</div>
           <p class="hero-sub">
@@ -423,7 +432,7 @@
           </p>
           <div class="hero-pill-row">
             <span class="pill">Interactive installations</span>
-            <span class="pill">UX & visual design</span>
+            <span class="pill">UX &amp; visual design</span>
             <span class="pill">Digital fabrication</span>
           </div>
         </div>
@@ -434,24 +443,24 @@
     <section id="projects">
       <div class="section-label">Projects</div>
       <h2 class="section-title">Selected Work</h2>
-      <p class="section-sub">One poster per project. Hover for the title, click to open the full PDF.</p>
+      <p class="section-sub">One poster per project. Hover for the title, click to open the full project.</p>
 
       <div class="project-grid">
 
-        <!-- SOLAR UMBRELLA -->
+        <!-- 1. RayBrella – Interactive Solar Umbrella (website link) -->
         <article class="project-card">
-          <a href="Solar Umbrella.pdf" target="_blank">
+          <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">
             <div class="project-thumb">
-              <img src="img/RayBrella.jpg" alt="Interactive Solar Umbrella">
-              <div class="project-hover"><span>Interactive Solar Umbrella</span></div>
+              <img src="img/RayBrella.jpg" alt="RayBrella interactive solar umbrella">
+              <div class="project-hover"><span>RayBrella – Interactive Solar Umbrella</span></div>
             </div>
           </a>
           <p class="project-caption">
-            Interactive solar-powered installation exploring light, motion, and shared space.
+            Interactive solar-powered umbrella that responds to people and light in shared outdoor space.
           </p>
         </article>
 
-        <!-- LAWN MOWER -->
+        <!-- 2. Robotic Lawn Mower -->
         <article class="project-card">
           <a href="Robotic Lawn Mower.pdf" target="_blank">
             <div class="project-thumb">
@@ -460,37 +469,37 @@
             </div>
           </a>
           <p class="project-caption">
-            Autonomous tracked mower prototype focusing on sensor layout, safety, and housing.
+            Autonomous tracked mower prototype focusing on sensor layout, safety, and robust casing.
           </p>
         </article>
 
-        <!-- STEMBLAZERS UXR -->
+        <!-- 3. STEMblazers UX Research -->
         <article class="project-card">
-          <a href="StemBlazers UXR.pdf" target="_blank">
+          <a href="stemblazer.pdf" target="_blank">
             <div class="project-thumb">
               <img src="img/stemblazeruxr.jpg" alt="STEMblazers UX Research">
               <div class="project-hover"><span>STEMblazers UX Research</span></div>
             </div>
           </a>
           <p class="project-caption">
-            Mixed-method UX research including interviews, surveys, and site redesign concepts.
+            Mixed-method UX research for STEMblazers, from interviews and surveys to redesign recommendations.
           </p>
         </article>
 
-        <!-- SPOTIFY UXR -->
+        <!-- 4. Spotify UX Research -->
         <article class="project-card">
-          <a href="Spotify UXR.pdf.pdf" target="_blank">
+          <a href="SpotifyUX.pdf" target="_blank">
             <div class="project-thumb">
               <img src="img/spotify.jpg" alt="Spotify UX Research">
               <div class="project-hover"><span>Spotify Streaming UX Research</span></div>
             </div>
           </a>
           <p class="project-caption">
-            UX analysis of Spotify’s listening flows, personalization features, and user pathways.
+            UX analysis of Spotify’s listening flows, personalization, and social features.
           </p>
         </article>
 
-        <!-- MEMENTO UXD -->
+        <!-- 5. Memento UX Design -->
         <article class="project-card">
           <a href="Memento UXD_ UXR.pdf" target="_blank">
             <div class="project-thumb">
@@ -499,11 +508,11 @@
             </div>
           </a>
           <p class="project-caption">
-            End-to-end UX design project including user research, personas, and high-fidelity prototypes.
+            End-to-end UX design including research, interaction flows, and high-fidelity prototypes.
           </p>
         </article>
 
-        <!-- GAME -->
+        <!-- 6. Haptic Memory Game for Children -->
         <article class="project-card">
           <a href="Game Design.pdf" target="_blank">
             <div class="project-thumb">
@@ -512,10 +521,35 @@
             </div>
           </a>
           <p class="project-caption">
-            Multisensory interactive game exploring tactile and memory-based engagement for children.
+            Multisensory game concept that uses haptics and memory to support playful learning.
           </p>
         </article>
 
+      </div>
+    </section>
+
+    <!-- ART PORTFOLIO (Ceramics) -->
+    <section id="art">
+      <div class="section-label">Art Portfolio</div>
+      <h2 class="section-title">Ceramic Work</h2>
+      <p class="section-sub">
+        A separate body of work focusing on ceramics, form, and material exploration.
+      </p>
+
+      <div id="art-block">
+        <div class="about-text-card">
+          <p>
+            This portfolio gathers selected ceramic pieces, surface experiments, and process documentation.
+          </p>
+          <div class="contact-box" style="border-top:none; padding-top:0; margin-top:12px;">
+            <div class="contact-text">
+              View the full ceramic portfolio as a PDF.
+            </div>
+            <div>
+              <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -525,11 +559,15 @@
       <div id="cv-block">
         <h2 class="section-title">Curriculum Vitae</h2>
         <p class="section-sub">
-          Full academic and professional CV with education, teaching, and additional projects.
+          Full academic and professional CV.
         </p>
         <div class="contact-box">
-          <div class="contact-text">Includes additional teaching experience and design work.</div>
-          <div><a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a></div>
+          <div class="contact-text">
+            Download the complete CV in PDF format.
+          </div>
+          <div>
+            <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
+          </div>
         </div>
       </div>
     </section>
@@ -537,21 +575,21 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="section-label">About me</div>
-      <h2 class="section-title">Digital Fabrication & Making</h2>
+      <h2 class="section-title">Digital Fabrication &amp; Making</h2>
       <p class="section-sub">
         Background, interests, and hands-on work in the lab.
       </p>
 
       <div class="about-grid">
         <div class="about-photo-card">
-          <img src="img/nazatwork.jpeg" alt="Naz at work">
+          <img src="img/nazatwork.jpeg" alt="Naz at work in the lab">
         </div>
         <div class="about-text-card">
           <p>
-            Naz Khani is a creative technologist and designer in the MS Creative Technology & Design program at CU Boulder.
+            Naz Khani is a creative technologist and designer in the MS Creative Technology &amp; Design program at CU Boulder.
           </p>
           <p>
-            Her work spans interactive installations, UX, and physical prototyping across digital and physical tools.
+            Her work spans interactive installations, UX, and physical prototyping, moving between code, sketches, and fabrication tools.
           </p>
           <div class="pill-row">
             <span class="pill">Digital fabrication</span>
