@@ -305,10 +305,10 @@
       color: var(--muted);
     }
 
-    /* RAYBRELLA PREVIEW (AFTER PROJECTS) ------------------------------ */
+    /* RAYBRELLA PREVIEW (ABOVE GRID) --------------------------------- */
 
     .raybrella-preview-block {
-      margin-top: 28px;
+      margin: 18px 0 28px;
       background: #f4f7f8;
       border-radius: var(--radius-lg);
       padding: 22px 24px 24px;
@@ -369,17 +369,30 @@
 
     /* ART & CV BLOCKS ------------------------------------------------- */
 
+    .art-cv-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .art-cv-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .art-section {
       background: var(--bg-art);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 24px 24px 28px;
       border: 1px solid var(--border-soft);
     }
 
     .cv-section {
       background: var(--bg-cv);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 24px 24px 28px;
       border: 1px solid var(--border-soft);
     }
 
@@ -417,6 +430,7 @@
     .ceramic-slideshow {
       width: 100%;
       max-width: 360px;
+      aspect-ratio: 3 / 4;      /* fixed box */
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-soft);
@@ -427,7 +441,8 @@
 
     .ceramic-slideshow img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
       display: block;
       opacity: 1;
       transition: opacity 0.4s ease;
@@ -620,7 +635,7 @@
     <div>
       <h1 class="hero-title">Designing interactive objects, interfaces, and material-driven experiences.</h1>
       <p class="hero-text">
-        Naz works across physical computing, digital fabrication, UX, and aesthetic practice to explore how people interact with objects, interfaces, and environments.
+        Naz works across physical computing, digital fabrication, UX, and aesthetics to explore how people interact with objects, interfaces, and environments.
       </p>
       <div class="hero-role">Designer &amp; Creative Technologist · University of Colorado Boulder</div>
       <div class="hero-pills">
@@ -634,7 +649,7 @@
     <div class="portrait-card">
       <img src="img/naz.jpeg" alt="Naz portrait">
       <div class="hero-photo-caption">
-        Fatemeh (Saharnaz) Hadavandkhani · goes by Naz Khani. Designer, Creative Technologist. MS Cretive Technology and Design at CU Boulder
+        Fatemeh (Saharnaz) Hadavandkhani · goes by Naz Khani. Designer, Creative Technologist. MSc Cretive Technology and Design, ATLAS Institute, CU Boulder
       </div>
     </div>
   </section>
@@ -646,18 +661,21 @@
       <div class="title-line"></div>
       <p class="section-sub">Click posters to open each project.</p>
 
-      <div class="project-grid">
+      <!-- RAYBRELLA LIVE PREVIEW (ABOVE GRID) -->
+      <div class="raybrella-preview-block">
+        <div class="raybrella-header">
+          <div class="raybrella-title">RayBrella Live Preview</div>
+          <div class="raybrella-sub">Interactive solar umbrella – selected screens from the live site.</div>
+        </div>
+        <div class="raybrella-frame">
+          <iframe src="https://buffblue2025.github.io/RayBrella/"></iframe>
+        </div>
+        <div class="raybrella-link">
+          <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">OPEN RAYBRELLA WEBSITE</a>
+        </div>
+      </div>
 
-        <!-- RayBrella -->
-        <article class="project-card">
-          <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">
-            <div class="project-thumb">
-              <img src="img/RayBrella.jpg" alt="RayBrella">
-              <div class="project-hover">RayBrella – Interactive Solar Umbrella</div>
-            </div>
-          </a>
-          <p class="project-caption">Solar-powered interactive umbrella rethinking shared shade and light.</p>
-        </article>
+      <div class="project-grid">
 
         <!-- Lawn Mower -->
         <article class="project-card">
@@ -715,56 +733,44 @@
         </article>
 
       </div>
-
-      <!-- RAYBRELLA LIVE PREVIEW (MOVED AFTER PROJECT GRID) -->
-      <div class="raybrella-preview-block">
-        <div class="raybrella-header">
-          <div class="raybrella-title">RayBrella Live Preview</div>
-          <div class="raybrella-sub">Interactive solar umbrella – selected screens from the live site.</div>
-        </div>
-        <div class="raybrella-frame">
-          <iframe src="https://buffblue2025.github.io/RayBrella/"></iframe>
-        </div>
-        <div class="raybrella-link">
-          <a href="https://buffblue2025.github.io/RayBrella/" target="_blank">OPEN RAYBRELLA WEBSITE</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ART -->
-  <section id="art" class="section-block">
-    <div class="art-section">
-      <h2 class="section-title">Art Portfolio</h2>
-      <div class="title-line"></div>
+  <!-- ART + CV SIDE BY SIDE -->
+  <section class="section-block">
+    <div class="art-cv-grid">
 
-      <!-- CERAMIC SLIDESHOW -->
-      <div class="ceramic-slideshow">
-        <img id="ceramic-slide" src="img/ceramic1.jpg" alt="Ceramic artwork by Naz">
-      </div>
+      <!-- ART -->
+      <div id="art" class="art-section">
+        <h2 class="section-title">Art Portfolio</h2>
+        <div class="title-line"></div>
 
-      <div class="download-block">
-        <div class="download-text">
-          Ceramic and glaze artworks.
+        <!-- CERAMIC SLIDESHOW -->
+        <div class="ceramic-slideshow">
+          <img id="ceramic-slide" src="img/ceramic1.jpg" alt="Ceramic artwork by Naz">
         </div>
-        <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- CV -->
-  <section id="cv" class="section-block">
-    <div class="cv-section">
-      <h2 class="section-title">Curriculum Vitae</h2>
-      <div class="title-line"></div>
-
-      <div class="download-block">
-        <div class="download-text">
-          Academic and design background.
+        <div class="download-block">
+          <div class="download-text">
+            Ceramic and glaze artworks.
+          </div>
+          <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
         </div>
-        <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
       </div>
+
+      <!-- CV -->
+      <div id="cv" class="cv-section">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <div class="title-line"></div>
+
+        <div class="download-block">
+          <div class="download-text">
+            Academic and design background.
+          </div>
+          <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -793,7 +799,7 @@
             University of Colorado Boulder.
           </p>
           <p>
-            She currently works as a lab assistant in the digital fabrication lab at CU Boulder, helping students
+            She currently works as a lab assistant in the CU digital fabrication lab, helping students
             prototype with laser cutters, 3D printers, and fabrication machines while developing her own
             interactive installations and design work.
           </p>
