@@ -130,17 +130,17 @@
     }
 
     .section-label {
-      font-size: 11px;
+      font-size: 13px;              /* bigger label */
       text-transform: uppercase;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.26em;
       color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .section-title {
-      font-size: 36px;          /* bigger and more distinct */
+      font-size: 36px;              /* big and distinct */
       font-weight: 700;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
 
     .section-sub {
@@ -287,9 +287,10 @@
       margin: 0;
     }
 
-    /* CV */
+    /* CV / ART download blocks */
 
-    #cv-block {
+    #cv-block,
+    #art-block {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
       background: linear-gradient(to right, rgba(184,196,169,0.20), #ffffff);
@@ -299,7 +300,7 @@
     .contact-box {
       border-top: 1px solid var(--border-soft);
       padding-top: 16px;
-      margin-top: 12px;
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
@@ -443,7 +444,7 @@
     <section id="projects">
       <div class="section-label">Projects</div>
       <h2 class="section-title">Selected Work</h2>
-      <p class="section-sub">One poster per project. Hover for the title, click to open the full project.</p>
+      <p class="section-sub">Click posters to open projects.</p>
 
       <div class="project-grid">
 
@@ -537,14 +538,12 @@
       </p>
 
       <div id="art-block">
-        <div class="about-text-card">
-          <div class="contact-box" style="border-top:none; padding-top:0; margin-top:4px;">
-            <div class="contact-text">
-              Portfolio of ceramic and glaze artworks (PDF).
-            </div>
-            <div>
-              <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
-            </div>
+        <div class="contact-box">
+          <div class="contact-text">
+            Ceramic and glaze portfolio.
+          </div>
+          <div>
+            <a class="btn" href="PortfolioCeramic.pdf" target="_blank">Open Ceramic Portfolio</a>
           </div>
         </div>
       </div>
@@ -560,7 +559,7 @@
       <div id="cv-block">
         <div class="contact-box">
           <div class="contact-text">
-            Download the CV as a PDF.
+            CV download.
           </div>
           <div>
             <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
@@ -586,7 +585,7 @@
             Naz Khani is a creative technologist and designer in the MS Creative Technology &amp; Design program at CU Boulder.
           </p>
           <p>
-            She is a lab assistant in the CU Boulder digital fabrication lab, supporting students on laser cutters, 3D printers, and CNC tools.
+            She is a lab assistant in the digital fabrication lab, helping students prototype with laser cutters, 3D printers, and CNC tools.
           </p>
           <div class="pill-row">
             <span class="pill">Digital fabrication lab</span>
