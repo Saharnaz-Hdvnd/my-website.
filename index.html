@@ -28,8 +28,8 @@
       --bg-shell: #ffffff;
       --text: #0b0f19;
       --muted: #4b5563;
-      --accent-1: #6FA4AF;      /* blue-green */
-      --accent-2: #B8C4A9;      /* sage */
+      --accent-1: #6FA4AF;     
+      --accent-2: #B8C4A9;     
       --border-soft: #e5e7eb;
       --max-width: 1080px;
       --radius-lg: 20px;
@@ -153,7 +153,7 @@
     /* HERO */
 
     .hero {
-      background: rgba(111,164,175,0.18); /* light blue-greenish */
+      background: rgba(111,164,175,0.18);
       border-radius: 24px;
       padding: 22px 22px 26px;
       display: grid;
@@ -220,15 +220,7 @@
       margin-top: 4px;
     }
 
-    .pill {
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      padding: 6px 12px;
-      font-size: 12px;
-      background: #f9fafb;
-    }
-
-    /* PROJECT GRID – posters + hover + PDF links */
+    /* PROJECTS */
 
     .project-grid {
       display: grid;
@@ -247,7 +239,7 @@
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--border-soft);
-      background: #000;
+      background: #fff;
       aspect-ratio: 4 / 3;
       width: 100%;
     }
@@ -255,7 +247,9 @@
     .project-thumb img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #ffffff;
+      padding: 6px;
       display: block;
     }
 
@@ -285,7 +279,7 @@
       margin: 0;
     }
 
-    /* CV section */
+    /* CV */
 
     #cv-block {
       border-radius: var(--radius-lg);
@@ -326,7 +320,7 @@
       color: #fff;
     }
 
-    /* About / Process */
+    /* ABOUT */
 
     .about-grid {
       display: grid;
@@ -394,7 +388,7 @@
 </head>
 <body>
 
-  <!-- Sticky top bar -->
+  <!-- Sticky bar -->
   <div class="topbar">
     <div class="name">Naz Khani</div>
     <nav class="nav">
@@ -405,138 +399,120 @@
   </div>
 
   <div class="shell">
-    <!-- Hero -->
+
+    <!-- HERO -->
     <section>
       <div class="hero">
-        <!-- Image LEFT -->
         <div>
           <div class="hero-card">
             <div class="hero-image-wrap">
-              <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
+              <img src="img/naz.jpeg" alt="Naz portrait">
             </div>
             <div class="hero-caption">
-              Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
+              Naz Khani (Fatemeh Hadavandkhani) • MS Creative Technology & Design • CU Boulder
             </div>
           </div>
         </div>
 
-        <!-- Text RIGHT -->
         <div>
-          <div class="section-label">Creative Technology &amp; Design</div>
+          <div class="section-label">Creative Technology & Design</div>
           <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
-          <div class="hero-roles">
-            Designer · Creative Technologist · PhD Applicant
-          </div>
+          <div class="hero-roles">Designer · Creative Technologist · PhD Applicant</div>
           <p class="hero-sub">
-            Naz works across interaction, physical computing, and visual storytelling to design
-            experiences that feel thoughtful, playful, and precise.
+            Naz works across interaction, physical computing, and visual storytelling to design experiences that feel thoughtful, playful, and precise.
           </p>
           <div class="hero-pill-row">
             <span class="pill">Interactive installations</span>
-            <span class="pill">UX &amp; visual design</span>
+            <span class="pill">UX & visual design</span>
             <span class="pill">Digital fabrication</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS GRID -->
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="section-label">Projects</div>
-      <h2 class="section-title">Selected work</h2>
-      <p class="section-sub">
-        One poster per project; hover for the title, click to open the full PDF.
-      </p>
+      <h2 class="section-title">Selected Work</h2>
+      <p class="section-sub">One poster per project. Hover for the title, click to open the full PDF.</p>
 
       <div class="project-grid">
 
-        <!-- 1. Interactive Solar Umbrella (RayBrella) -->
+        <!-- SOLAR UMBRELLA -->
         <article class="project-card">
           <a href="Solar Umbrella.pdf" target="_blank">
             <div class="project-thumb">
-              <img src="img/RayBrella.jpg" alt="Interactive Solar Umbrella - RayBrella">
-              <div class="project-hover">
-                <span>Interactive Solar Umbrella</span>
-              </div>
+              <img src="img/RayBrella.jpg" alt="Interactive Solar Umbrella">
+              <div class="project-hover"><span>Interactive Solar Umbrella</span></div>
             </div>
           </a>
           <p class="project-caption">
-            Responsive outdoor installation using embedded light, motion, and spatial interaction.
+            Interactive solar-powered installation exploring light, motion, and shared space.
           </p>
         </article>
 
-        <!-- 2. Robotic Lawn Mower -->
+        <!-- LAWN MOWER -->
         <article class="project-card">
           <a href="Robotic Lawn Mower.pdf" target="_blank">
             <div class="project-thumb">
-              <img src="img/cad.jpeg" alt="Robotic Lawn Mower CAD">
-              <div class="project-hover">
-                <span>Robotic Lawn Mower</span>
-              </div>
+              <img src="img/cad.jpeg" alt="Robotic Lawn Mower">
+              <div class="project-hover"><span>Robotic Lawn Mower</span></div>
             </div>
           </a>
           <p class="project-caption">
-            Autonomous tracked mower prototype focusing on casing, sensors, and safe blade integration.
+            Autonomous tracked mower prototype focusing on sensor layout, safety, and housing.
           </p>
         </article>
 
-        <!-- 3. STEMblazers UX Research -->
+        <!-- STEMBLAZERS UXR -->
         <article class="project-card">
           <a href="StemBlazers UXR.pdf" target="_blank">
             <div class="project-thumb">
               <img src="img/stemblazeruxr.jpg" alt="STEMblazers UX Research">
-              <div class="project-hover">
-                <span>STEMblazers UX Research</span>
-              </div>
+              <div class="project-hover"><span>STEMblazers UX Research</span></div>
             </div>
           </a>
           <p class="project-caption">
-            Mixed-method UX research for STEMblazers, including interviews and redesign recommendations.
+            Mixed-method UX research including interviews, surveys, and site redesign concepts.
           </p>
         </article>
 
-        <!-- 4. Spotify UX Research -->
+        <!-- SPOTIFY UXR -->
         <article class="project-card">
           <a href="Spotify UXR.pdf.pdf" target="_blank">
             <div class="project-thumb">
               <img src="img/spotify.jpg" alt="Spotify UX Research">
-              <div class="project-hover">
-                <span>Spotify Streaming UX Research</span>
-              </div>
+              <div class="project-hover"><span>Spotify Streaming UX Research</span></div>
             </div>
           </a>
           <p class="project-caption">
-            UX analysis of Spotify’s listening flows, personalization, and social features.
+            UX analysis of Spotify’s listening flows, personalization features, and user pathways.
           </p>
         </article>
 
-        <!-- 5. Memento UX Design -->
+        <!-- MEMENTO UXD -->
         <article class="project-card">
           <a href="Memento UXD_ UXR.pdf" target="_blank">
             <div class="project-thumb">
-              <img src="img/memento-dark.png" alt="Memento App UX Design">
-              <div class="project-hover">
-                <span>Memento – Leisure Planning App</span>
-              </div>
+              <img src="img/memento.jpg" alt="Memento UX Design">
+              <div class="project-hover"><span>Memento – Leisure Planning App</span></div>
             </div>
           </a>
           <p class="project-caption">
-            End-to-end UX design for an accessibility-aware leisure planning application.
+            End-to-end UX design project including user research, personas, and high-fidelity prototypes.
           </p>
         </article>
 
-        <!-- 6. Haptic Memory Game for Children -->
+        <!-- GAME -->
         <article class="project-card">
           <a href="Game Design.pdf" target="_blank">
             <div class="project-thumb">
               <img src="img/game.jpg" alt="Haptic Memory Game for Children">
-              <div class="project-hover">
-                <span>Haptic Memory Game for Children</span>
-              </div>
+              <div class="project-hover"><span>Haptic Memory Game for Children</span></div>
             </div>
           </a>
           <p class="project-caption">
-            Inclusive haptic memory game exploring multisensory play principles.
+            Multisensory interactive game exploring tactile and memory-based engagement for children.
           </p>
         </article>
 
@@ -552,40 +528,33 @@
           Full academic and professional CV with education, teaching, and additional projects.
         </p>
         <div class="contact-box">
-          <div class="contact-text">
-            The CV includes additional teaching experience, coursework, and design work not shown here.
-          </div>
-          <div>
-            <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
-          </div>
+          <div class="contact-text">Includes additional teaching experience and design work.</div>
+          <div><a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a></div>
         </div>
       </div>
     </section>
 
-    <!-- About / Digital fab & process -->
+    <!-- ABOUT -->
     <section id="about">
       <div class="section-label">About me</div>
-      <h2 class="section-title">Digital fabrication &amp; making</h2>
+      <h2 class="section-title">Digital Fabrication & Making</h2>
       <p class="section-sub">
-        Background, interests, and a glimpse into hands-on work in the lab.
+        Background, interests, and hands-on work in the lab.
       </p>
 
       <div class="about-grid">
         <div class="about-photo-card">
-          <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
+          <img src="img/nazatwork.jpeg" alt="Naz at work">
         </div>
         <div class="about-text-card">
           <p>
-            Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer in the MS
-            Creative Technology &amp; Design program at CU Boulder. Her work spans interactive
-            installations, UX, and physical prototyping.
+            Naz Khani is a creative technologist and designer in the MS Creative Technology & Design program at CU Boulder.
           </p>
           <p>
-            She enjoys moving between digital and physical tools: sketching and interface design,
-            coding behaviors, and using fabrication equipment to bring ideas into space.
+            Her work spans interactive installations, UX, and physical prototyping across digital and physical tools.
           </p>
           <div class="pill-row">
-            <span class="pill">Digital fabrication lab</span>
+            <span class="pill">Digital fabrication</span>
             <span class="pill">Interaction design</span>
             <span class="pill">Research-through-design</span>
           </div>
@@ -593,22 +562,15 @@
       </div>
 
       <div class="process-strip">
-        <div class="process-tile">
-          <img src="img/mach1.jpeg" alt="Fabrication process 1">
-        </div>
-        <div class="process-tile">
-          <img src="img/mach2.jpeg" alt="Fabrication process 2">
-        </div>
-        <div class="process-tile">
-          <img src="img/mach3.jpeg" alt="Fabrication process 3">
-        </div>
+        <div class="process-tile"><img src="img/mach1.jpeg" alt=""></div>
+        <div class="process-tile"><img src="img/mach2.jpeg" alt=""></div>
+        <div class="process-tile"><img src="img/mach3.jpeg" alt=""></div>
       </div>
 
-      <div class="process-caption">
-        Selected moments from the digital fabrication lab.
-      </div>
+      <div class="process-caption">Selected moments from the digital fabrication lab.</div>
     </section>
 
   </div>
+
 </body>
 </html>
