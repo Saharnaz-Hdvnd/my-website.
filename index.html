@@ -1,93 +1,614 @@
-<div class="project-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-  <!-- 1. Interactive Solar Umbrella -->
-  <article class="project-card">
-    <a href="Solar Umbrella.pdf" target="_blank">
-      <div class="project-thumb">
-        <img src="img/solar.jpeg" alt="Interactive Solar Umbrella">
-        <div class="project-hover">
-          <span>Interactive Solar Umbrella</span>
+  <link rel="canonical" href="https://naz-khani.com/">
+
+  <meta name="description" content="Portfolio website of Saharnaz Khani — showcasing work, design projects, and creative portfolio.">
+
+  <!-- OpenGraph for link previews -->
+  <meta property="og:title" content="Saharnaz Khani Portfolio">
+  <meta property="og:description" content="Explore design, projects, and creative work by Saharnaz Khani.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://naz-khani.com/">
+  <meta property="og:image" content="https://naz-khani.com/images/your-cover-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta charset="UTF-8">
+  <title>Naz Khani – Creative Technology & Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-page: #f3f4f6;
+      --bg-shell: #ffffff;
+      --text: #0b0f19;
+      --muted: #4b5563;
+      --accent-1: #6FA4AF;      /* blue-green */
+      --accent-2: #B8C4A9;      /* sage */
+      --border-soft: #e5e7eb;
+      --max-width: 1080px;
+      --radius-lg: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg-page);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Sticky top bar */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(90deg, #6FA4AF, #B8C4A9);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(15,23,42,0.18);
+    }
+
+    .topbar .name {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .topbar .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .topbar .nav a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .topbar .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #ffffff;
+      transition: width 0.15s ease-out;
+    }
+
+    .topbar .nav a:hover::after { width: 100%; }
+
+    @media (max-width: 720px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* Outer shell */
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 24px auto 60px;
+      background: var(--bg-shell);
+      border-radius: 26px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+      padding: 0 28px 40px;
+      position: relative;
+    }
+
+    section {
+      margin: 36px 0 52px;
+      padding: 0 4px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 0 18px;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: rgba(111,164,175,0.18); /* light blue-greenish */
+      border-radius: 24px;
+      padding: 22px 22px 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+      gap: 28px;
+      align-items: center;
+      border: 1px solid var(--border-soft);
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 14px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-image-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    .hero-caption {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 4.8vw, 42px);
+      line-height: 1.05;
+      margin: 0 0 8px;
+    }
+
+    .hero-roles {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-width: 520px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 6px 12px;
+      font-size: 12px;
+      background: #f9fafb;
+    }
+
+    /* PROJECT GRID – posters + hover + PDF links */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .project-thumb {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #000;
+      aspect-ratio: 4 / 3;
+      width: 100%;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 15, 25, 0.78);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.18s ease-out;
+    }
+
+    .project-thumb:hover .project-hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .project-caption {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* CV section */
+
+    #cv-block {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(to right, rgba(184,196,169,0.20), #ffffff);
+      padding: 20px 18px 22px;
+    }
+
+    .contact-box {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 16px;
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-text {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--text);
+      padding: 10px 18px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--text);
+      color: #fff;
+    }
+
+    /* About / Process */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-photo-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      padding: 10px;
+      background: rgba(111,164,175,0.10);
+      max-width: 260px;
+    }
+
+    .about-text-card {
+      border-radius: 18px;
+      border: 1px solid var(--accent-2);
+      padding: 16px 18px 18px;
+      background: #ffffff;
+    }
+
+    .about-text-card p {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+      max-width: 520px;
+    }
+
+    .process-tile {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+    }
+
+    .process-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Sticky top bar -->
+  <div class="topbar">
+    <div class="name">Naz Khani</div>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#cv">CV</a>
+      <a href="#about">About me</a>
+    </nav>
+  </div>
+
+  <div class="shell">
+    <!-- Hero -->
+    <section>
+      <div class="hero">
+        <!-- Image LEFT -->
+        <div>
+          <div class="hero-card">
+            <div class="hero-image-wrap">
+              <img src="img/naz.jpeg" alt="Portrait of Naz Khani">
+            </div>
+            <div class="hero-caption">
+              Naz Khani (Fatemeh Hadavandkhani) · MS Creative Technology &amp; Design · CU Boulder
+            </div>
+          </div>
+        </div>
+
+        <!-- Text RIGHT -->
+        <div>
+          <div class="section-label">Creative Technology &amp; Design</div>
+          <h1 class="hero-title">Interaction, making, and research-through-design.</h1>
+          <div class="hero-roles">
+            Designer · Creative Technologist · PhD Applicant
+          </div>
+          <p class="hero-sub">
+            Naz works across interaction, physical computing, and visual storytelling to design
+            experiences that feel thoughtful, playful, and precise.
+          </p>
+          <div class="hero-pill-row">
+            <span class="pill">Interactive installations</span>
+            <span class="pill">UX &amp; visual design</span>
+            <span class="pill">Digital fabrication</span>
+          </div>
         </div>
       </div>
-    </a>
-    <p class="project-caption">
-      Responsive outdoor installation using light and embedded electronics to shape how people share space.
-    </p>
-  </article>
+    </section>
 
-  <!-- 2. Robotic Lawn Mower (other photo: CAD view) -->
-  <article class="project-card">
-    <a href="Robotic Lawn Mower.pdf" target="_blank">
-      <div class="project-thumb">
-        <img src="img/cad.jpeg" alt="Robotic Lawn Mower CAD view">
-        <div class="project-hover">
-          <span>Robotic Lawn Mower</span>
+    <!-- PROJECTS GRID -->
+    <section id="projects">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">Selected work</h2>
+      <p class="section-sub">
+        One poster per project; hover for the title, click to open the full PDF.
+      </p>
+
+      <div class="project-grid">
+
+        <!-- 1. Interactive Solar Umbrella (RayBrella) -->
+        <article class="project-card">
+          <a href="Solar Umbrella.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/RayBrella.jpg" alt="Interactive Solar Umbrella - RayBrella">
+              <div class="project-hover">
+                <span>Interactive Solar Umbrella</span>
+              </div>
+            </div>
+          </a>
+          <p class="project-caption">
+            Responsive outdoor installation using embedded light, motion, and spatial interaction.
+          </p>
+        </article>
+
+        <!-- 2. Robotic Lawn Mower -->
+        <article class="project-card">
+          <a href="Robotic Lawn Mower.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/cad.jpeg" alt="Robotic Lawn Mower CAD">
+              <div class="project-hover">
+                <span>Robotic Lawn Mower</span>
+              </div>
+            </div>
+          </a>
+          <p class="project-caption">
+            Autonomous tracked mower prototype focusing on casing, sensors, and safe blade integration.
+          </p>
+        </article>
+
+        <!-- 3. STEMblazers UX Research -->
+        <article class="project-card">
+          <a href="StemBlazers UXR.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/stemblazeruxr.jpg" alt="STEMblazers UX Research">
+              <div class="project-hover">
+                <span>STEMblazers UX Research</span>
+              </div>
+            </div>
+          </a>
+          <p class="project-caption">
+            Mixed-method UX research for STEMblazers, including interviews and redesign recommendations.
+          </p>
+        </article>
+
+        <!-- 4. Spotify UX Research -->
+        <article class="project-card">
+          <a href="Spotify UXR.pdf.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/spotify.jpg" alt="Spotify UX Research">
+              <div class="project-hover">
+                <span>Spotify Streaming UX Research</span>
+              </div>
+            </div>
+          </a>
+          <p class="project-caption">
+            UX analysis of Spotify’s listening flows, personalization, and social features.
+          </p>
+        </article>
+
+        <!-- 5. Memento UX Design -->
+        <article class="project-card">
+          <a href="Memento UXD_ UXR.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/memento-dark.png" alt="Memento App UX Design">
+              <div class="project-hover">
+                <span>Memento – Leisure Planning App</span>
+              </div>
+            </div>
+          </a>
+          <p class="project-caption">
+            End-to-end UX design for an accessibility-aware leisure planning application.
+          </p>
+        </article>
+
+        <!-- 6. Haptic Memory Game for Children -->
+        <article class="project-card">
+          <a href="Game Design.pdf" target="_blank">
+            <div class="project-thumb">
+              <img src="img/game.jpg" alt="Haptic Memory Game for Children">
+              <div class="project-hover">
+                <span>Haptic Memory Game for Children</span>
+              </div>
+            </div>
+          </a>
+          <p class="project-caption">
+            Inclusive haptic memory game exploring multisensory play principles.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <div class="section-label">CV</div>
+      <div id="cv-block">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <p class="section-sub">
+          Full academic and professional CV with education, teaching, and additional projects.
+        </p>
+        <div class="contact-box">
+          <div class="contact-text">
+            The CV includes additional teaching experience, coursework, and design work not shown here.
+          </div>
+          <div>
+            <a class="btn" href="saharnazcvR.pdf" target="_blank">Download CV</a>
+          </div>
         </div>
       </div>
-    </a>
-    <p class="project-caption">
-      Autonomous mower prototype focusing on casing, sensor layout, and safe blade integration.
-    </p>
-  </article>
+    </section>
 
-  <!-- 3. STEMblazers UX Research -->
-  <article class="project-card">
-    <a href="StemBlazers UXR.pdf" target="_blank">
-      <div class="project-thumb">
-        <img src="img/stemblazeruxr.jpg" alt="STEMblazers UX Research">
-        <div class="project-hover">
-          <span>STEMblazers UX Research</span>
+    <!-- About / Digital fab & process -->
+    <section id="about">
+      <div class="section-label">About me</div>
+      <h2 class="section-title">Digital fabrication &amp; making</h2>
+      <p class="section-sub">
+        Background, interests, and a glimpse into hands-on work in the lab.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-photo-card">
+          <img src="img/nazatwork.jpeg" alt="Naz working in the lab">
+        </div>
+        <div class="about-text-card">
+          <p>
+            Naz Khani (Fatemeh Hadavandkhani) is a creative technologist and designer in the MS
+            Creative Technology &amp; Design program at CU Boulder. Her work spans interactive
+            installations, UX, and physical prototyping.
+          </p>
+          <p>
+            She enjoys moving between digital and physical tools: sketching and interface design,
+            coding behaviors, and using fabrication equipment to bring ideas into space.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Digital fabrication lab</span>
+            <span class="pill">Interaction design</span>
+            <span class="pill">Research-through-design</span>
+          </div>
         </div>
       </div>
-    </a>
-    <p class="project-caption">
-      Mixed-method UX research for STEMblazers, from interviews to site audit and recommendations.
-    </p>
-  </article>
 
-  <!-- 4. Spotify UX Research -->
-  <article class="project-card">
-    <a href="Spotify UXR.pdf.pdf" target="_blank">
-      <div class="project-thumb">
-        <img src="img/spotify.jpg" alt="Spotify UX Research">
-        <div class="project-hover">
-          <span>Spotify Streaming UX Research</span>
+      <div class="process-strip">
+        <div class="process-tile">
+          <img src="img/mach1.jpeg" alt="Fabrication process 1">
+        </div>
+        <div class="process-tile">
+          <img src="img/mach2.jpeg" alt="Fabrication process 2">
+        </div>
+        <div class="process-tile">
+          <img src="img/mach3.jpeg" alt="Fabrication process 3">
         </div>
       </div>
-    </a>
-    <p class="project-caption">
-      UX research on Spotify listening flows, social features, and subscription model.
-    </p>
-  </article>
 
-  <!-- 5. Memento UX Design -->
-  <article class="project-card">
-    <a href="Memento UXD_ UXR.pdf" target="_blank">
-      <div class="project-thumb">
-        <img src="img/memento-dark.png" alt="Memento leisure-planning app">
-        <div class="project-hover">
-          <span>Memento – Leisure Planning App</span>
-        </div>
+      <div class="process-caption">
+        Selected moments from the digital fabrication lab.
       </div>
-    </a>
-    <p class="project-caption">
-      End-to-end UX design for an accessibility-aware leisure planning app.
-    </p>
-  </article>
+    </section>
 
-  <!-- 6. Game Design -->
-  <article class="project-card">
-    <a href="Game Design.pdf" target="_blank">
-      <div class="project-thumb">
-        <img src="img/game-haptic.jpg" alt="Haptic Memory Game for Children">
-        <div class="project-hover">
-          <span>Haptic Memory Game for Children</span>
-        </div>
-      </div>
-    </a>
-    <p class="project-caption">
-      Inclusive haptic memory game concept exploring play beyond vision.
-    </p>
-  </article>
-
-</div>
+  </div>
+</body>
+</html>
